@@ -1,13 +1,15 @@
 from tkinter import *
-from PMSensor import *
+
+from client.pmreader import *
+
 
 class DisplayApp:
     def __init__(self):
-        self.sensor = PMSensor("/dev/cu.wchusbserial410")
+        self.sensor = PMReader("COM4")
         self.top = Tk()
         self.top.title("Meritve delcev")
         self._place_components()
-        self.top.eval('tk::PlaceWindow %s center' % self.top.winfo_pathname(self.top.winfo_id()))
+        #self.top.eval('tk::PlaceWindow %s center' % self.top.winfo_pathname(self.top.winfo_id()))
 
     def _place_components(self):
         lbl1 = Label(self.top, text="Trenutne meritve PM delcev v zraku:", fg="blue")

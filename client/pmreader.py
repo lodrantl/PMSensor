@@ -2,30 +2,34 @@ import serial
 import time
 import threading
 import struct
+import queue
 
-class PMSensor:
-    def __init__(self, port):
-        self.serial = serial.Serial(port);
+
+class PMReader(threading.Thread):
+    def __init__(self, port, queue):
+        self.serial = serial.Serial(port)
+        self.queue = queue
+        self.polling = False
+        threading.Thread.__init__(self)
 
     def close(self):
+        self.polling = False
         self.serial.close()
 
-    def _readPackage(self):
-        self.serial.flush()
+    def run(self):
+        self.polling = True
+        while self.polling:
+            old_byte = new_byte = b'\x00'
 
-        old_byte = new_byte = b'\x00'
+            while not (old_byte == b'\xaa' and new_byte == b'\xc0'):
+                old_byte = new_byte
+                new_byte = self.serial.read(1)
 
-        while not (old_byte == b'\xaa' and new_byte == b'\xc0'):
-            old_byte = new_byte
-            new_byte = self.serial.read(1)
+            package = self.serial.read(8)
 
-        package = self.serial.read(8)
+            self.queue(self.readValues(package))
 
-        return package
-
-
-    def readValues(self):
-        package = self._readPackage()
+    def readValues(self, package):
         unpacked = struct.unpack('<HHxxBB', package)
         print("Package: {}. Unpacked: {}".format(package, unpacked))
 
@@ -48,12 +52,16 @@ class PMSensor:
 
 
 if __name__ == "__main__":
-    sensor = PMSensor("/dev/cu.wchusbserial410")
-
+    myQueue = queue.Queue()
     try:
+        sensor = pmsensor("COM4", myQueue)
+        sensor.start()
         while True:
-            sensor.printValues()
-            time.sleep(5)
+            if not myQueue.empty():
+                pm_25, pm_10 = myQueue.get()
+                print("PM2.5 value: {} μg/m^3, PM10 {} μg/m^3".format(pm_25, pm_10))
+            time.sleep(0.8)
+
     except KeyboardInterrupt:
         print("Closing serial port...")
         sensor.close()
