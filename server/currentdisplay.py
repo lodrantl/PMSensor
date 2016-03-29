@@ -1,6 +1,6 @@
 from tkinter import *
 
-from client.pmreader import *
+from server.pmreader import *
 
 
 class DisplayApp:
