@@ -6,9 +6,9 @@ import queue
 
 
 class PMReader(threading.Thread):
-    def __init__(self, port, queue):
+    def __init__(self, port, function):
         self.serial = serial.Serial(port)
-        self.queue = queue
+        self.function = function
         self.polling = False
         threading.Thread.__init__(self)
 
@@ -27,7 +27,7 @@ class PMReader(threading.Thread):
 
             package = self.serial.read(8)
 
-            self.queue(self.readValues(package))
+            self.function(self.readValues(package))
 
     def readValues(self, package):
         unpacked = struct.unpack('<HHxxBB', package)
@@ -46,22 +46,12 @@ class PMReader(threading.Thread):
         pm_10 = unpacked[1] / 10
         return pm_25, pm_10
 
-    def printValues(self):
-        pm_25, pm_10 = sensor.readValues()
-        print("PM2.5 value: {} μg/m^3, PM10 {} μg/m^3".format(pm_25, pm_10))
 
 
 if __name__ == "__main__":
-    myQueue = queue.Queue()
-    try:
-        sensor = pmsensor("COM4", myQueue)
-        sensor.start()
-        while True:
-            if not myQueue.empty():
-                pm_25, pm_10 = myQueue.get()
-                print("PM2.5 value: {} μg/m^3, PM10 {} μg/m^3".format(pm_25, pm_10))
-            time.sleep(0.8)
+    def printValues(data):
+        pm_25, pm_10 = data
+        print("PM2.5 value: {} μg/m^3, PM10 {} μg/m^3".format(pm_25, pm_10))
 
-    except KeyboardInterrupt:
-        print("Closing serial port...")
-        sensor.close()
+    sensor = PMReader("COM5", printValues)
+    sensor.start()

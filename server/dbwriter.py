@@ -40,10 +40,4 @@ queue = queue.Queue()
 sensor = PMReader("COM4", store)
 sensor.start()
 
-# while True:
-#     if not queue.empty():
-#         data = queue.get()
-#         print(data)
-#         store(data)
-#         time.sleep(0.8)
 
