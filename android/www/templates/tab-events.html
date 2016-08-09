@@ -1,0 +1,20 @@
+<ion-view view-title="Meritve">
+  <ion-content class="text-center">
+    <ion-list class="padding">
+      <ion-item class="item-remove-animate item-icon-right" ng-repeat="event in events" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
+        <h2>{{event.comment}}</h2>
+        <p>Od <b>{{event.starts | date : "d/m/yyyy HH:mm:ss"}}</b> do <b>{{event.ends | date : "d/m/yyyy HH:mm:ss"}}</b></p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+    <button ng-class="running ? 'button-royal' : 'button-dark'" class="button" ng-click="start()">
+      Začni meritev
+    </button>
+    <button class="button button-dark" ng-click="end()">
+      Zaključi meritev
+    </button>
+  </ion-content>
+</ion-view>

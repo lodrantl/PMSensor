@@ -1,0 +1,17 @@
+<ion-view view-title="Graf">
+  <ion-content class="padding">
+    <div ng-show="current_10 != null">
+      <h3>Trenutne vrednosti delcev:</h3>
+      <ion-list>
+        <ion-item>
+          PM 10: {{current_10}} &#181;g/m<sup>3</sup>
+        </ion-item>
+        <ion-item>
+          PM 2.5: {{current_25}} &#181;g/m<sup>3</sup>
+        </ion-item>
+      </ion-list>
+    </div>
+    <h3 ng-show="current_10 == null">Napaka pri zajemu podatkov.</h3>
+    <highchart id="chart1" config="chartConfig"></highchart>
+  </ion-content>
+</ion-view>
