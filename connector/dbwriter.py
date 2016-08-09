@@ -5,7 +5,7 @@ from influxdb import SeriesHelper, InfluxDBClient
 from connector.pmreader import PMReader
 
 config_parser = ConfigParser()
-config_parser.read('pmsensor.example.ini')
+config_parser.read('pmsensor.ini')
 config = config_parser['DEFAULT']
 
 print(config['host'])
@@ -36,7 +36,7 @@ def store(data):
     PMSeriesHelper(sensor_id=config['sensor_id'], pm_25=data[0], pm_10=data[1])
     print(PMSeriesHelper._json_body_())
 
-sensor = PMReader("COM4", store)
+sensor = PMReader(config['com_port'], store)
 sensor.start()
 
 
