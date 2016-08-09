@@ -23,7 +23,7 @@ def wait_for_influx(url):
             pass
 
 
-wait_for_influx(config['host'] + 'ping')
+wait_for_influx('http://{}:{}/ping'.format(config['host'], config['port']))
 
 print(config['host'])
 
