@@ -2,7 +2,7 @@ from configparser import ConfigParser
 
 from influxdb import SeriesHelper, InfluxDBClient
 
-from connector.pmreader import PMReader
+from .pmreader import PMReader
 
 config_parser = ConfigParser()
 config_parser.read('pmsensor.ini')
