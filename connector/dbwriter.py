@@ -27,7 +27,7 @@ class PMSeriesHelper(SeriesHelper):
         fields = ['pm_25', 'pm_10']
         # Defines all the tags for the series.
         tags = ['sensor_id']
-        bulk_size = 4
+        bulk_size = 1
         # autocommit must be set to True when using bulk_size
         autocommit = True
 
@@ -36,7 +36,7 @@ def store(data):
     PMSeriesHelper(sensor_id=config['sensor_id'], pm_25=data[0], pm_10=data[1])
     print(PMSeriesHelper._json_body_())
 
-sensor = PMReader("COM3", store)
+sensor = PMReader("COM4", store)
 sensor.start()
 
 
