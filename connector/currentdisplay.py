@@ -1,13 +1,15 @@
 from tkinter import *
 
-from .pmreader import *
+from pmreader import *
 
 
 class DisplayApp:
     def __init__(self):
         self.sensor = PMReader("COM3", self.refresh)
         self.top = Tk()
+        print("LOL")
         self.top.title("Meritve delcev")
+        self.sensor.start()
         self._place_components()
         #self.top.eval('tk::PlaceWindow %s center' % self.top.winfo_pathname(self.top.winfo_id()))
 

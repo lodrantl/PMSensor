@@ -10,7 +10,7 @@ angular.module('pmreader.services', ["ngStorage"])
         params: {
           pretty: true,
           db: "pm",
-          q: 'select * from "particulates.' + $localStorage.sensorId + '" order by time desc limit 1'
+          q: 'select * from "particulates.' + $localStorage.sensorId + '" where time > now() - 5m order by time desc limit 1'
         }
       });
     },

@@ -2,11 +2,21 @@ angular.module('pmreader.controllers', ['ngStorage'])
 
 .controller('ChartCtrl', function($scope, Data, $interval, $http) {
   var ctrl = this;
-
+  Highcharts.setOptions({
+    global: {
+      /**
+       * Use moment-timezone.js to return the timezone offset for individual
+       * timestamps, used in the X axis labels and the tooltip header.
+       */
+      getTimezoneOffset: function(timestamp) {
+        var timezoneOffset = (new Date()).getTimezoneOffset();
+        return timezoneOffset;
+      }
+    }
+  });
   var refreshData = function() {
     Data.current().then(function successCallback(response) {
       var currentData = response.data.results[0].series[0].values[0];
-      console.log(currentData)
       $scope.current_10 = currentData[1];
       $scope.current_25 = currentData[2];
     }, function errorCallback(response) {
@@ -102,7 +112,7 @@ angular.module('pmreader.controllers', ['ngStorage'])
   });
 })
 
-.controller('EventsCtrl', function($scope, $ionicPopup, Data, $filter) {
+.controller('EventsCtrl', function($scope, $ionicPopup, Data, $filter, $interval) {
   var refresh = function() {
     Data.getEvents().then(function(response) {
       $scope.events = []
@@ -154,14 +164,19 @@ angular.module('pmreader.controllers', ['ngStorage'])
       $scope.endTime = null;
     });
   };
-
+  var setCurrentTime = function() {
+    $scope.currentTime = new Date(null);
+    $scope.currentTime.setSeconds(Math.floor(((new Date()).getTime() - $scope.startTime)/1000))
+  }
   $scope.start = function() {
     $scope.startTime = (new Date()).getTime();
     $scope.running = true;
+    $scope.refreshTimer = $interval(setCurrentTime, 1000);
     console.log($scope.running);
   };
   $scope.end = function() {
     $scope.endTime = (new Date()).getTime();
+    $interval.cancel($scope.refreshTimer);
     showPopup();
   };
 

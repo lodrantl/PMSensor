@@ -1,7 +1,7 @@
 {
   "name": "pm_sensor",
   "version": "1.1.1",
-  "description": "pm_sensor: An Ionic project",
+  "description": "pm_sensor: Collecting PM data from IonicDB",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
