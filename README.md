@@ -21,5 +21,5 @@ A python application for working with SDS011 PM sensor on Rasberry PI.
 
 ## Client configuration
 
-1. Install PM Sensor Android from Google Play Store [Link unavailable]
+1. Install PM Sensor Android from [Google Play Store](https://play.google.com/apps/testing/si.lodrant.pm_sensor)
 2. In the config tab, set the host and sensor id to match server configuration (default InfluxDB port is 8086)
