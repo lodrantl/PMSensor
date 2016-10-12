@@ -16,9 +16,11 @@ angular.module('pmreader.controllers', ['ngStorage'])
   });
   var refreshData = function() {
     Data.current().then(function successCallback(response) {
-      var currentData = response.data.results[0].series[0].values[0];
-      $scope.current_10 = currentData[1];
-      $scope.current_25 = currentData[2];
+      if (response.data.results[0].series) {
+        var currentData = response.data.results[0].series[0].values[0];
+        $scope.current_10 = currentData[1];
+        $scope.current_25 = currentData[2];
+      }
     }, function errorCallback(response) {
       // called asynchronously if an error occurs
       // or server returns response with an error status.
@@ -73,9 +75,11 @@ angular.module('pmreader.controllers', ['ngStorage'])
     },
     series: [{
       name: "PM 10",
+      color: "blue",
       data: []
     }, {
       name: "PM 2.5",
+      color: "red",
       data: []
     }],
     //Boolean to control showing loading status on chart (optional)
@@ -87,16 +91,18 @@ angular.module('pmreader.controllers', ['ngStorage'])
 
   var refreshChart = function() {
     Data.currentChart().then(function successCallback(response) {
-      var currentValues = response.data.results[0].series[0].values;
+      if (response.data.results[0].series) {
+        var currentValues = response.data.results[0].series[0].values;
 
-      $scope.chartConfig.series[0].data.length = 0
-      $scope.chartConfig.series[1].data.length = 0
-      for (var i = 0; i < currentValues.length; i++) {
-        point = currentValues[i];
-        var date = (new Date(point[0])).getTime();
+        $scope.chartConfig.series[0].data.length = 0
+        $scope.chartConfig.series[1].data.length = 0
+        for (var i = 0; i < currentValues.length; i++) {
+          point = currentValues[i];
+          var date = (new Date(point[0])).getTime();
 
-        $scope.chartConfig.series[0].data.push([date, point[1]]);
-        $scope.chartConfig.series[1].data.push([date, point[2]]);
+          $scope.chartConfig.series[0].data.push([date, point[1]]);
+          $scope.chartConfig.series[1].data.push([date, point[2]]);
+        }
       }
     }, function errorCallback(response) {
       // called asynchronously if an error occurs
@@ -112,25 +118,30 @@ angular.module('pmreader.controllers', ['ngStorage'])
   });
 })
 
-.controller('EventsCtrl', function($scope, $ionicPopup, Data, $filter, $interval) {
-  var refresh = function() {
+.controller('EventsCtrl', function($scope, $ionicPopup, Data, $filter, $interval, $log) {
+  var vm = $scope;
+  vm.refresh = function() {
     Data.getEvents().then(function(response) {
-      $scope.events = []
-      var series = response.data.results[0].series[0];
-      for (var i = series.values.length - 1; i >= 0; i--) {
-        var value = series.values[i];
-        var object = {};
-        for (var j = 0; j < value.length; j++) {
-          object[series.columns[j]] = value[j]
+      vm.events = []
+      if (response.data.results[0].series) {
+        var series = response.data.results[0].series[0];
+        for (var i = series.values.length - 1; i >= 0; i--) {
+          var value = series.values[i];
+          var object = {};
+          for (var j = 0; j < value.length; j++) {
+            object[series.columns[j]] = value[j]
+          }
+          $scope.events.push(object);
         }
-        $scope.events.push(object);
       }
-
-      console.log($scope.events);
-    }, function() {});
+      console.log(vm.events);
+    }, function() {}).finally(function() {
+      // Stop the ion-refresher from spinning
+      $scope.$broadcast('scroll.refreshComplete');
+    });;
   }
   var showPopup = function() {
-    $scope.data = {};
+    vm.data = {};
 
     // An elaborate, custom popup
     var myPopup = $ionicPopup.show({
@@ -143,11 +154,11 @@ angular.module('pmreader.controllers', ['ngStorage'])
         text: '<b>Save</b>',
         type: 'button-positive',
         onTap: function(e) {
-          if (!$scope.data.comment) {
+          if (!vm.data.comment) {
             //don't allow the user to close unless he enters wifi password
             e.preventDefault();
           } else {
-            return $scope.data.comment;
+            return vm.data.comment;
           }
         }
       }]
@@ -155,33 +166,33 @@ angular.module('pmreader.controllers', ['ngStorage'])
 
     myPopup.then(function(res) {
       if (res) {
-        Data.addEvent($scope.startTime, $scope.endTime, res).then(function() {
-          refresh();
+        Data.addEvent(vm.startTime, vm.endTime, res).then(function() {
+          vm.refresh();
         }, function() {});
       }
-      $scope.running = false;
-      $scope.startTime = null;
-      $scope.endTime = null;
+      vm.running = false;
+      vm.startTime = null;
+      vm.endTime = null;
     });
   };
   var setCurrentTime = function() {
-    $scope.currentTime = new Date(null);
-    $scope.currentTime.setSeconds(Math.floor(((new Date()).getTime() - $scope.startTime)/1000))
+    vm.currentTime = new Date(null);
+    vm.currentTime.setSeconds(Math.floor(((new Date()).getTime() - vm.startTime) / 1000))
   }
-  $scope.start = function() {
-    $scope.startTime = (new Date()).getTime();
-    $scope.running = true;
-    $scope.refreshTimer = $interval(setCurrentTime, 1000);
-    console.log($scope.running);
+  vm.start = function() {
+    vm.startTime = (new Date()).getTime();
+    vm.running = true;
+    vm.refreshTimer = $interval(setCurrentTime, 1000);
+    console.log(vm.running);
   };
-  $scope.end = function() {
-    $scope.endTime = (new Date()).getTime();
-    $interval.cancel($scope.refreshTimer);
+  vm.end = function() {
+    vm.endTime = (new Date()).getTime();
+    $interval.cancel(vm.refreshTimer);
     showPopup();
   };
 
 
-  refresh();
+  vm.refresh();
 })
 
 .controller('ConfigCtrl', function($scope, $localStorage) {

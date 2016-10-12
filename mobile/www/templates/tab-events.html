@@ -1,5 +1,7 @@
 <ion-view view-title="Meritve">
   <ion-content class="text-center">
+    <ion-refresher pulling-text="Osvežitev..." on-refresh="refresh()">
+    </ion-refresher>
     <ion-list class="padding">
       <ion-item class="item-remove-animate item-icon-right" ng-repeat="event in events" type="item-text-wrap" href="#/tab/chart">
         <h2>{{event.comment}}</h2>

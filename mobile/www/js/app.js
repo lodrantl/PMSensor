@@ -7,18 +7,31 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('pmreader', ['ionic', 'pmreader.controllers', 'pmreader.services', "highcharts-ng"])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $localStorage, $window, $log) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
-    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+    if ($window.cordova && $window.cordova.plugins && $window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
 
     }
-    if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
+    if ($window.StatusBar) {
+      // org.apache.cordova.statusbar requ@ired
       StatusBar.styleDefault();
+    }
+
+    if ($window.cordova && $window.cordova.plugins && $window.cordova.plugins.zeroconf) {
+      cordova.plugins.zeroconf.watch('_influxdb._tcp.local.', function(result) {
+        var action = result.action;
+        var service = result.service;
+        if (action == 'added') {
+          $log.log('service added', service);
+          $localStorage.url = 'http://' + service.addresses[0] + ":" + service.port;
+        } else {
+          $log.log('service removed', service);
+        }
+      });
     }
   });
 })
