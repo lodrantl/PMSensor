@@ -1,0 +1,18 @@
+<ion-content class="text-center">
+  <ion-refresher pulling-text="Osvežitev..." on-refresh="ctrl.refresh()">
+  </ion-refresher>
+  <ion-list class="padding">
+    <ion-item class="item-remove-animate item-icon-right" ng-repeat="event in ctrl.events" type="item-text-wrap" ng-click="ctrl.showEvent(event)">
+      <h2>{{event.comment}}</h2>
+      <p>Od <b>{{event.starts | date : "d/m/yyyy HH:mm:ss"}}</b> do <b>{{event.ends | date : "d/m/yyyy HH:mm:ss"}}</b></p>
+      <i class="icon ion-chevron-right icon-accessory"></i>
+    </ion-item>
+  </ion-list>
+  <button ng-class="ctrl.running ? 'button-royal' : 'button-dark'" class="button  margin-top" ng-click="ctrl.start()">
+    Začni meritev
+  </button>
+  <button class="button button-dark margin-top" ng-click="ctrl.end()">
+    Zaključi meritev
+  </button>
+  <div ng-show="ctrl.running">Trajanje meritve: {{ctrl.currentTime | date : "HH:mm:ss" : "UTC"}}</div>
+</ion-content>

@@ -25,6 +25,20 @@ angular.module('pmreader.services', ["ngStorage"])
         }
       });
     },
+    pastChart: function(event) {
+      var start = (new Date(event.starts)).toISOString();
+      var end = (new Date(event.ends)).toISOString();
+
+      return $http({
+        method: 'GET',
+        url: $localStorage.url.replace(/\/$/, "") + "/query",
+        params: {
+          pretty: true,
+          db: "pm",
+          q: 'select * from "particulates.' + $localStorage.sensorId + '" where time >  \'' + start + '\' and time < \'' + end + '\''
+        }
+      });
+    },
     getEvents: function() {
       return $http({
         method: 'GET',

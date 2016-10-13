@@ -1,14 +1,7 @@
-<!--
-  This template loads for the 'tab.friend-detail' state (app.js)
-  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
-  The FriendsCtrl pulls data from the Friends service (service.js)
-  The Friends service returns an array of friend data
--->
-<ion-view view-title="{{chat.name}}">
-  <ion-content class="padding">
-    <img ng-src="{{chat.face}}" style="width: 64px; height: 64px">
-    <p>
-      {{chat.lastText}}
-    </p>
-  </ion-content>
-</ion-view>
+<ion-content class="padding-no-top">
+  <a class="button float-right icon-left ion-chevron-left button-clear button-dark" ng-click="ctrl.hideEvent()">Nazaj</a>
+  <h2>{{ctrl.event.comment}}</h2>
+
+  <p>Od <b>{{ctrl.event.starts | date : "d/m/yyyy HH:mm:ss"}}</b> do <b>{{ctrl.event.ends | date : "d/m/yyyy HH:mm:ss"}}</b></p>
+  <highchart id="chart2" config="ctrl.chartConfig"></highchart>
+</ion-content>

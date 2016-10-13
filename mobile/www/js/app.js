@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('pmreader', ['ionic', 'pmreader.controllers', 'pmreader.services', "highcharts-ng"])
+angular.module('pmreader', ['ionic', 'pmreader.controllers', 'pmreader.services', "highcharts-ng", "ngStorage"])
 
 .run(function($ionicPlatform, $localStorage, $window, $log) {
   $ionicPlatform.ready(function() {
@@ -33,6 +33,18 @@ angular.module('pmreader', ['ionic', 'pmreader.controllers', 'pmreader.services'
         }
       });
     }
+    Highcharts.setOptions({
+      global: {
+        /**
+         * Use moment-timezone.js to return the timezone offset for individual
+         * timestamps, used in the X axis labels and the tooltip header.
+         */
+        getTimezoneOffset: function(timestamp) {
+          var timezoneOffset = (new Date()).getTimezoneOffset();
+          return timezoneOffset;
+        }
+      }
+    });
   });
 })
 
@@ -58,7 +70,7 @@ angular.module('pmreader', ['ionic', 'pmreader.controllers', 'pmreader.services'
     views: {
       'tab-chart': {
         templateUrl: 'templates/tab-chart.html',
-        controller: 'ChartCtrl'
+        controller: 'ChartController'
       }
     }
   })
@@ -68,25 +80,25 @@ angular.module('pmreader', ['ionic', 'pmreader.controllers', 'pmreader.services'
       views: {
         'tab-events': {
           templateUrl: 'templates/tab-events.html',
-          controller: 'EventsCtrl'
+          controller: 'EventsController'
         }
       }
     })
-    .state('tab.event-detail', {
+  /*  .state('tab.event-detail', {
       url: '/events/:eventId',
       views: {
         'tab-events': {
           templateUrl: 'templates/event-details.html',
-          controller: 'EventDetailCtrl'
+          controller: 'EventDetailController'
         }
       }
-    })
+    })*/
     .state('tab.config', {
       url: '/config',
       views: {
         'tab-config': {
           templateUrl: 'templates/tab-config.html',
-          controller: 'ConfigCtrl'
+          controller: 'ConfigController'
         }
       }
     });
