@@ -1,4 +1,4 @@
-angular.module('pmreader.controllers').controller('EventsController', function($scope, $ionicPopup, Data, $filter, $interval, $log, $document) {
+angular.module('pmreader.controllers').controller('EventsController', function($ionicPlatform, $scope, $ionicPopup, Data, $filter, $interval, $log, $document) {
   var vm = this;
 
   vm.refresh = function() {
@@ -146,13 +146,15 @@ angular.module('pmreader.controllers').controller('EventsController', function($
       // or server returns response with an error status.
     });
   };
-  vm.hideEvent = function() {
+  vm.hideEvent = function(e) {
     vm.event = null;
-    document.removeEventListener("backbutton", vm.hideEvent);
+    vm.hardback();
   }
   vm.showEvent = function(event) {
     vm.event = event;
-    document.addEventListener("backbutton", vm.hideEvent, true);
+    vm.hardback = $ionicPlatform.registerBackButtonAction(
+      vm.hideEvent, 101
+    );
     setPastChart(event);
   }
 });
