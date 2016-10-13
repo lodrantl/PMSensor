@@ -23,6 +23,13 @@ angular.module('pmreader', ['ionic', 'pmreader.controllers', 'pmreader.services'
       StatusBar.styleDefault();
     }
 
+    if (!$localStorage.time) {
+      $localStorage.time = 60;
+    }
+    if (!$localStorage.sensorId) {
+      $localStorage.sensorId = 1;
+    }
+
     if ($window.cordova && $window.cordova.plugins && $window.cordova.plugins.zeroconf) {
       cordova.plugins.zeroconf.watch('_influxdb._tcp.local.', function(result) {
         var action = result.action;

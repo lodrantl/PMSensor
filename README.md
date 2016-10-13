@@ -5,12 +5,12 @@ A python application for working with SDS011 PM sensor on Rasberry PI.
 ## Server configuration
 
 ### DBWriter
-1. Install InfluxDB on your Raspberry PI
-2. Install python, git and pip
+1. Install InfluxDB on your Raspberry PI [(Guide)](https://docs.influxdata.com/influxdb/v1.0/introduction/installation/)
+2. Install Python3, git and pip3
 3. Run this command to install the required Python modules
 
     ```
-    pip install pyserial influxdb
+    sudo pip3 install pyserial influxdb
     ```
 4. clone this repository
 
@@ -23,6 +23,7 @@ A python application for working with SDS011 PM sensor on Rasberry PI.
 ### Service
 1. Copy pmsensor.service into `/lib/systemd/system`
 2. Set the **PM_HOME** variable to the the `/your/install/path/connector`
+3. Run `sudo systemctl daemon-reload`
 3. Run `sudo systemctl enable pmsensor`
 4. Run `sudo systemctl start pmsensor`
 
