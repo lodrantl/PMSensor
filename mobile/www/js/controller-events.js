@@ -152,7 +152,7 @@ angular.module('pmreader.controllers').controller('EventsController', function($
   }
   vm.showEvent = function(event) {
     vm.event = event;
-    document.addEventListener("backbutton", vm.hideEvent, false);
+    document.addEventListener("backbutton", vm.hideEvent, true);
     setPastChart(event);
   }
 });

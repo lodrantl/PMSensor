@@ -1,0 +1,7 @@
+<service-group>
+  <name replace-wildcards="yes">InfluxDB service</name>
+  <service>
+    <type>_influxdb._tcp</type>
+    <port>8086</port>
+  </service>
+</service-group>
