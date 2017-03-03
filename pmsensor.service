@@ -1,0 +1,11 @@
+[Unit]
+Description=PMSensor daemon
+After=influxdb.service
+
+[Service]
+ExecStart=/usr/local/bin/dbwriter
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+Alias=pmsensor.service

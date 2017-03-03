@@ -6,11 +6,13 @@ from pmreader import PMReader
 
 import urllib.request
 import urllib.error
+import os
+
+folder = os.path.dirname(os.path.abspath(os.path.realpath(__file__)))
 
 config_parser = ConfigParser()
-config_parser.read('pmsensor.ini')
+config_parser.read(folder + '/pmsensor.ini')
 config = config_parser['DEFAULT']
-
 
 def wait_for_influx(url):
     print('Waiting for InfluxDB to start at: {}'.format(url))

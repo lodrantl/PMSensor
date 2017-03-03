@@ -22,10 +22,17 @@ A python application for working with SDS011 PM sensor on Rasberry PI.
 
 ### Service
 1. Copy pmsensor.service into `/lib/systemd/system`
-2. Set the **PM_HOME** variable to the the `/your/install/path/connector`
-3. Run `sudo systemctl daemon-reload`
-3. Run `sudo systemctl enable pmsensor`
-4. Run `sudo systemctl start pmsensor`
+2. Install to /usr/local/bin
+```
+sudo ln -s /home/pi/Workspace/PMSensor/connector/dbwriter.py /usr/local/bin/dbwriter
+sudo chown +x /usr/local/bin/dbwriter
+```
+3. Enable and start
+```
+sudo systemctl daemon-reload
+sudo systemctl enable pmsensor
+sudo systemctl start pmsensor
+```
 
 ### Avahi zeroconf
 1. Install avahi-daemon `sudo apt install avahi-daemon`
@@ -42,4 +49,3 @@ A python application for working with SDS011 PM sensor on Rasberry PI.
 1. On the main server clone this repository
 2. Set the HOST variable to the ip of the Pi with the data
 3. Execute import_data.sh as root
-
