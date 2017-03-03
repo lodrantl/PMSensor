@@ -2,7 +2,7 @@
   "name": "pm_sensor",
   "private": "true",
   "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.3.1"
+    "ionic": "driftyco/ionic-bower#1.3.3"
   },
   "dependencies": {
     "highcharts-ng": "^0.0.11",
