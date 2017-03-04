@@ -15,6 +15,26 @@
   color: red;
 }
 
+i.error {
+  color: red;
+}
+i.ok {
+  color: green;
+}
+
+input.inb {
+  display: inline-block;
+}
+
+span.input-label.blocks {
+  display: block;
+}
+
+.load-spin svg {
+  width: 16px;
+  height: 16px;
+}
+
 .padding-no-top {
   padding: 0px 10px 10px 10px;
 }

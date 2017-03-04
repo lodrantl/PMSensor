@@ -2,16 +2,21 @@
   <ion-content class="padding">
     <div class="list">
       <label class="item item-input item-stacked-label">
-        <span class="input-label b">URL InfluxDB baze</span>
-        <input type="text" ng-model="controller.$storage.url" placeholder="http://192.168.23.134:8086">
+        <span class="input-label b blocks">URL InfluxDB baze</span>
+        <ion-spinner ng-show="controller.state == 'loading'" class="load-spin inb"></ion-spinner>
+        <i ng-show="controller.state == ''" class="icon ion-checkmark ok"></i>
+        <i ng-show="controller.state == 'error'" class="icon ion-close error"></i>
+        <input type="text" ng-model="controller.$storage.url" class="inb" placeholder="http://192.168.23.134:8086" />
       </label>
-      <label class="item item-input item-stacked-label">
+      <label class="item item-input item-select">
         <span class="input-label b">Sensor ID</span>
-        <input type="text" ng-model="controller.$storage.sensorId">
+        <select ng-model="controller.$storage.sensorId">
+          <option ng-repeat="id in controller.sensorIdOptions">{{id}}</option>
+        </select>
       </label>
       <label class="item item-input item-stacked-label">
         <span class="input-label b">Čas prikaza (v s)</span>
-        <input type="text" ng-model="controller.$storage.time">
+        <input type="text" ng-model="controller.$storage.time" />
       </label>
     </div>
   </ion-content>

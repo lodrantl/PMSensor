@@ -26,9 +26,6 @@ angular.module('pmreader', ['ionic', 'pmreader.controllers', 'pmreader.services'
     if (!$localStorage.time) {
       $localStorage.time = 60;
     }
-    if (!$localStorage.sensorId) {
-      $localStorage.sensorId = 1;
-    }
 
     if ($window.cordova && $window.cordova.plugins && $window.cordova.plugins.zeroconf) {
       cordova.plugins.zeroconf.watch('_influxdb._tcp.local.', function(result) {
@@ -79,7 +76,6 @@ angular.module('pmreader', ['ionic', 'pmreader.controllers', 'pmreader.services'
     views: {
       'tab-chart': {
         templateUrl: 'templates/tab-chart.html',
-        controller: 'ChartController'
       }
     }
   })
@@ -89,7 +85,6 @@ angular.module('pmreader', ['ionic', 'pmreader.controllers', 'pmreader.services'
       views: {
         'tab-events': {
           templateUrl: 'templates/tab-events.html',
-          controller: 'EventsController'
         }
       }
     })
@@ -107,7 +102,6 @@ angular.module('pmreader', ['ionic', 'pmreader.controllers', 'pmreader.services'
       views: {
         'tab-config': {
           templateUrl: 'templates/tab-config.html',
-          controller: 'ConfigController'
         }
       }
     });

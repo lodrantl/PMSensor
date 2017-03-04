@@ -1,4 +1,5 @@
-<ion-view view-title="Meritve"  data-ng-controller="EventsController as ctrl">
+<ion-view data-ng-controller="EventsController as ctrl">
+  <ion-nav-title>Meritve: Postaja {{ctrl.$storage.sensorId}}</ion-nav-title>
   <div ng-include="'templates/event-list.html'" ng-show="ctrl.event == null"></div>
   <div ng-include="'templates/event-details.html'" ng-show="ctrl.event != null"></div>
 </ion-view>

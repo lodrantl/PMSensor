@@ -1,5 +1,7 @@
-angular.module('pmreader.controllers').controller('EventsController', function($ionicPlatform, $scope, $ionicPopup, Data, Charts, $filter, $interval, $log, $document) {
+angular.module('pmreader.controllers').controller('EventsController', function($localStorage, $ionicPlatform, $scope, $ionicPopup, Data, Charts, $filter, $interval, $log, $document) {
   var vm = this;
+
+  vm.$storage = $localStorage;
 
   vm.refresh = function() {
     Data.getEvents().then(function(response) {
@@ -20,6 +22,8 @@ angular.module('pmreader.controllers').controller('EventsController', function($
       $scope.$broadcast('scroll.refreshComplete');
     });;
   }
+
+
   var showPopup = function() {
     vm.data = {};
 
@@ -71,6 +75,11 @@ angular.module('pmreader.controllers').controller('EventsController', function($
   };
 
 
+  $scope.$watch(function() {
+    return angular.toJson($localStorage);
+  }, function() {
+    vm.refresh();
+  });
 
   vm.refresh();
 
