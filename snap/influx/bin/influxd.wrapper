@@ -1,0 +1,8 @@
+#!/bin/sh
+
+CONF_PATH="$SNAP/conf/default-influxdb.conf"
+if [ -e "$SNAP_USER_DATA/influx/influxdb.conf" ] ; then
+    CONF_PATH="$SNAP_USER_DATA/influx/influxdb.conf"
+fi
+
+exec $SNAP/usr/bin/influxd -config $CONF_PATH
