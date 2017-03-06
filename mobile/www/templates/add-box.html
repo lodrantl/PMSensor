@@ -1,0 +1,30 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-positive">
+    <h1 class="title">Nova škatlica</h1>
+    <button class="button button-clear button-primary" ng-click="closeModal()">Prekliči</button>
+  </ion-header-bar>
+  <ion-content class="padding">
+    <span class="found" ng-show="found">V omrežju zaznana škatlica</span>
+    <div class="list">
+      <div class="item item-divider">
+        URL naprave
+      </div>
+      <label class="item item-input">
+        <input ng-model="editedBox.url" type="text">
+        <ion-spinner ng-show="state == 'loading'" class="load-spin"></ion-spinner>
+        <i ng-show="state == 'ok'" class="icon ion-checkmark ok"></i>
+        <i ng-show="state == 'error'" class="icon ion-close error"></i>
+      </label>
+      <div class="item item-divider">
+        ID merilnika
+      </div>
+      <ion-radio ng-repeat="id in ids" ng-value="id" ng-model="editedBox.id">
+        {{id}}
+      </ion-radio>
+      <label ng-hide="ids.length" class="item">
+        <span class="input-label">Nepravilen url</span>
+      </label>
+      <button class="button button-full button-positive" ng-click="createBox(editedBox)">Dodaj</button>
+    </div>
+  </ion-content>
+</ion-modal-view>

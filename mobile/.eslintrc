@@ -6,5 +6,8 @@
     "browser": true,
     "es6": true
   },
-  "extends": "angular"
+  "extends": "angular",
+  "rules": {
+    "angular/controller-as": "off"
+    }
 }

@@ -1,23 +1,41 @@
 <ion-view view-title="Nastavitve" data-ng-controller="ConfigController as controller">
   <ion-content class="padding">
-    <div class="list">
-      <label class="item item-input item-stacked-label">
-        <span class="input-label b blocks">URL InfluxDB baze</span>
-        <ion-spinner ng-show="controller.state == 'loading'" class="load-spin inb"></ion-spinner>
-        <i ng-show="controller.state == ''" class="icon ion-checkmark ok"></i>
-        <i ng-show="controller.state == 'error'" class="icon ion-close error"></i>
-        <input type="text" ng-model="controller.$storage.url" class="inb" placeholder="http://192.168.23.134:8086" />
+    <ion-list>
+      <div class="item item-divider">
+        Škatlica
+      </div>
+      <div ng-repeat="box in controller.$storage.boxes" class="radio-wrapper">
+        <button class="button button-clear button-padding delete-radio" ng-click="controller.removeBox(box)">
+          <i class="icon ion-trash-a"></i>
+        </button>
+        <ion-radio ng-value="box.id + ':::' + box.url" ng-model="controller.$storage.currentBox" class="list-radio">
+          <span class="b">URL: </span><span class="italic">{{box.url}} </span> <span class="b">ID: </span> <span class="italic">{{box.id}} </span>
+        </ion-radio>
+      </div>
+      <div class="item item-button-right">
+        Dodaj škatlico
+        <button class="button button-balanced" ng-click="controller.openModal()">
+            <i class="icon ion-plus"></i>
+          </button>
+      </div>
+      <div class="item item-divider">
+        Splošno
+      </div>
+      <label class="item item-input item-stacked-label item-select">
+        <span class="input-label b">Čas prikaza</span>
+        <div class="row">
+          <div class = "col gray">
+            <input type="text" class="gray" ng-model="controller.$storage.time" />
+          </div>
+          <div class = "col rel col-40">
+            <select ng-model="controller.$storage.timeUnit">
+              <option value="s">s</option>
+              <option value="m">min</option>
+              <option value="h">ur</option>
+            </select>
+          </div>
+        </div>
       </label>
-      <label class="item item-input item-select">
-        <span class="input-label b">Sensor ID</span>
-        <select ng-model="controller.$storage.sensorId">
-          <option ng-repeat="id in controller.sensorIdOptions">{{id}}</option>
-        </select>
-      </label>
-      <label class="item item-input item-stacked-label">
-        <span class="input-label b">Čas prikaza (v s)</span>
-        <input type="text" ng-model="controller.$storage.time" />
-      </label>
-    </div>
+    </ion-list>
   </ion-content>
 </ion-view>

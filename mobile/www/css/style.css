@@ -11,15 +11,85 @@
 .pm10 {
   color: blue;
 }
+
 .pm25 {
   color: red;
 }
 
+.found {
+  text-align: center;
+  width: 100%;
+  display: block;
+  color: #b2003b;
+  font-size: 20px;
+  padding: 3px 0 12px 0;
+}
+
+.radio-wrapper {
+  position: relative;
+}
+
+.item-radio.list-radio div div {
+  padding-left: 50px;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.rel {
+  position: relative;
+}
+
+.item-divider.item {
+  background-color: #e6e6e6;
+}
+
+.gray {
+  background: #f2f2f2 !important;
+}
+
+.item-select.item-stacked-label div.row {
+  padding-left: 0px;
+}
+
+.item-select.item-stacked-label div select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  right: 13px;
+  background: #f2f2f2;
+  padding: 0 48px 0 16px;
+  max-width: 90%;
+  border: none;
+  color: #333;
+  text-indent: .01px;
+  text-overflow: '';
+  white-space: nowrap;
+  font-size: 14px;
+  cursor: pointer;
+  direction: rtl;
+}
+
+button.button-clear.delete-radio {
+  position: absolute;
+  top: 5px;
+  left: 0px;
+  z-index: 9999999;
+  color: black;
+}
+
 i.error {
   color: red;
+  margin-right: 10px;
 }
+
 i.ok {
   color: green;
+  margin-right: 10px;
 }
 
 input.inb {
@@ -28,6 +98,10 @@ input.inb {
 
 span.input-label.blocks {
   display: block;
+}
+
+.load-spin {
+  margin-right: 10px;
 }
 
 .load-spin svg {

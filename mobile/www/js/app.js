@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('pmreader', ['ionic', 'pmreader.controllers', 'pmreader.services', "highcharts-ng", "ngStorage"])
 
-.run(function($ionicPlatform, $localStorage, $window, $log) {
+.run(function($ionicPlatform, $localStorage, $window, $log, $rootScope, $timeout, $state) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -26,6 +26,9 @@ angular.module('pmreader', ['ionic', 'pmreader.controllers', 'pmreader.services'
     if (!$localStorage.time) {
       $localStorage.time = 60;
     }
+    if (!$localStorage.timeUnit) {
+      $localStorage.timeUnit = "s";
+    }
 
     if ($window.cordova && $window.cordova.plugins && $window.cordova.plugins.zeroconf) {
       cordova.plugins.zeroconf.watch('_influxdb._tcp.local.', function(result) {
@@ -33,7 +36,17 @@ angular.module('pmreader', ['ionic', 'pmreader.controllers', 'pmreader.services'
         var service = result.service;
         if (action == 'added') {
           $log.log('service added', service);
-          $localStorage.url = 'http://' + service.addresses[0] + ":" + service.port;
+          var e = {'url': service.addresses[0] + ":" + service.port, 'id': null};
+          for (c in $localStorage.boxes) {
+            if (c.url = e.url) {
+              return;
+            }
+          }
+          if ($state.current.name == 'tab.config') {
+            $rootScope.$broadcast('boxFound', e);
+          } else {
+            $state.go("tab.config", {'d': e });
+          }
         } else {
           $log.log('service removed', service);
         }
@@ -88,25 +101,28 @@ angular.module('pmreader', ['ionic', 'pmreader.controllers', 'pmreader.services'
         }
       }
     })
-  /*  .state('tab.event-detail', {
-      url: '/events/:eventId',
-      views: {
-        'tab-events': {
-          templateUrl: 'templates/event-details.html',
-          controller: 'EventDetailController'
+    /*  .state('tab.event-detail', {
+        url: '/events/:eventId',
+        views: {
+          'tab-events': {
+            templateUrl: 'templates/event-details.html',
+            controller: 'EventDetailController'
+          }
         }
-      }
-    })*/
+      })*/
     .state('tab.config', {
       url: '/config',
       views: {
         'tab-config': {
           templateUrl: 'templates/tab-config.html',
         }
+      },
+      params: {
+        d: null
       }
     });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/chart');
 
-});
+})

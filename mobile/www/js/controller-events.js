@@ -1,11 +1,11 @@
-angular.module('pmreader.controllers').controller('EventsController', function($localStorage, $ionicPlatform, $scope, $ionicPopup, Data, Charts, $filter, $interval, $log, $document) {
+angular.module('pmreader.controllers').controller('EventsController', function($localStorage, $ionicPlatform, $scope, $ionicPopup, Data, Helper, $filter, $interval, $log, $document) {
   var vm = this;
 
   vm.$storage = $localStorage;
 
   vm.refresh = function() {
     Data.getEvents().then(function(response) {
-      vm.events = []
+      var e = []
       if (response.data.results[0].series) {
         var series = response.data.results[0].series[0];
         for (var i = series.values.length - 1; i >= 0; i--) {
@@ -14,10 +14,13 @@ angular.module('pmreader.controllers').controller('EventsController', function($
           for (var j = 0; j < value.length; j++) {
             object[series.columns[j]] = value[j]
           }
-          vm.events.push(object);
+          e.push(object);
         }
       }
-    }, function() {}).finally(function() {
+      vm.events = e;
+    }, function() {
+      vm.events = [];
+    }).finally(function() {
       // Stop the ion-refresher from spinning
       $scope.$broadcast('scroll.refreshComplete');
     });;
@@ -135,7 +138,7 @@ angular.module('pmreader.controllers').controller('EventsController', function($
   var setPastChart = function(event) {
     Data.pastChart(event).then(function successCallback(response) {
       if (response.data.results[0].series) {
-        Charts.fillChart(vm.chartConfig, response.data.results[0].series[0].values);
+        Helper.fillChart(vm.chartConfig, response.data.results[0].series[0].values);
       }
     }, function errorCallback(response) {
       // called asynchronously if an error occurs

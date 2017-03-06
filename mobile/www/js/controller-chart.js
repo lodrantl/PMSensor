@@ -1,5 +1,5 @@
 angular.module('pmreader.controllers')
-  .controller('ChartController', function($rootScope, $localStorage, $scope, Data, $interval, $log, Charts) {
+  .controller('ChartController', function($rootScope, $localStorage, $scope, Data, $interval, $log, Helper) {
     var vm = this;
 
     vm.$storage = $localStorage;

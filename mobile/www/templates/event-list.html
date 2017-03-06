@@ -7,6 +7,9 @@
       <p>Od <b>{{event.starts | date : "dd/MM/yyyy HH:mm:ss"}}</b> do <b>{{event.ends | date : "dd/MM/yyyy HH:mm:ss"}}</b></p>
       <i class="icon ion-chevron-right icon-accessory"></i>
     </ion-item>
+    <ion-item ng-hide="ctrl.events.length" class="item">
+      <span class="input-label">Ni še shranjenih meritev</span>
+    </ion-item>
   </ion-list>
   <button ng-class="ctrl.running ? 'button-royal' : 'button-dark'" class="button  margin-top" ng-click="ctrl.start()">
     Začni meritev

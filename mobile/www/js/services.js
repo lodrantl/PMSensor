@@ -1,21 +1,21 @@
 angular.module('pmreader.services', ["ngStorage"])
-  .factory('Data', function($http, $localStorage, $q, $log, $rootScope, $timeout, Charts) {
+  .factory('Data', function($http, $localStorage, $q, $log, $rootScope, $timeout, Helper) {
     //Select data where time is later than
     function query(data, time) {
-      return ' SELECT ' + data + ' FROM "particulates.' + $localStorage.sensorId + '" WHERE time > ' + time + ' ';
+      return ' SELECT ' + data + ' FROM "particulates.' + Helper.id() + '" WHERE time > ' + time + ' ';
     };
     //Group data, so at most 150 points are requested
     function groupTime(time) {
       var g = time / 150;
-      return ' GROUP BY *, time(' + Math.ceil(g) + 's) ';
+      return ' GROUP BY *, time(' + Math.ceil(g) + $localStorage.timeUnit + ') ';
     };
 
     //Requests latest value and writes it into rootScope
     function currentValue() {
-      if ($localStorage.url && $localStorage.sensorId != null) {
+      if (Helper.boxSet()) {
         $http({
           method: 'GET',
-          url: $localStorage.url.replace(/\/$/, "") + "/query",
+          url: Helper.url() + "/query",
           params: {
             pretty: true,
             db: "pm",
@@ -37,35 +37,38 @@ angular.module('pmreader.services', ["ngStorage"])
           $timeout(currentValue, 1000);
         });;
       } else {
+        $rootScope.current_10 = null;
+        $rootScope.current_25 = null;
         $timeout(currentValue, 1000);
       }
     };
 
     //Requests latest graph and writes it into rootScope
     function currentChart() {
-      if ($localStorage.url  && $localStorage.sensorId != null) {
+      if (Helper.boxSet()) {
         var time = $localStorage.time;
         $http({
           method: 'GET',
-          url: $localStorage.url.replace(/\/$/, "") + "/query",
+          url: Helper.url() + "/query",
           params: {
             pretty: true,
             db: "pm",
-            q: query('MEAN(pm_10), MEAN(pm_25)', 'now() - ' + time + 's') + groupTime(time)
+            q: query('MEAN(pm_10), MEAN(pm_25)', 'now() - ' + time + $localStorage.timeUnit) + groupTime(time)
           }
         }).then(function successCallback(response) {
           if (response.data.results[0].series) {
             var data = response.data.results[0].series[0].values;
-            Charts.fillChart($rootScope.chartConfig, data);
+            Helper.fillChart($rootScope.chartConfig, data);
           } else {
-            Charts.emptyChart($rootScope.chartConfig);
+            Helper.emptyChart($rootScope.chartConfig);
           }
         }, function errorCallback(response) {
-          Charts.emptyChart($rootScope.chartConfig);
+          Helper.emptyChart($rootScope.chartConfig);
         }).finally(function(response) {
           $timeout(currentChart, 1000);
         });
       } else {
+        Helper.emptyChart($rootScope.chartConfig);
         $timeout(currentChart, 1000);
       }
     }
@@ -76,14 +79,14 @@ angular.module('pmreader.services', ["ngStorage"])
 
     return {
       pastChart: function(event) {
-        if ($localStorage.url && $localStorage.sensorId != null) {
+        if (Helper.boxSet()) {
           var start = (new Date(event.starts)).toISOString();
           var end = (new Date(event.ends)).toISOString();
           var time = (event.ends - event.starts) / 1000;
 
           return $http({
             method: 'GET',
-            url: $localStorage.url.replace(/\/$/, "") + "/query",
+            url: Helper.url() + "/query",
             params: {
               pretty: true,
               db: "pm",
@@ -94,28 +97,28 @@ angular.module('pmreader.services', ["ngStorage"])
         return $q.reject("No url");
       },
       getEvents: function() {
-        if ($localStorage.url && $localStorage.sensorId != null) {
+        if (Helper.boxSet()) {
           return $http({
             method: 'GET',
-            url: $localStorage.url.replace(/\/$/, "") + "/query",
+            url: Helper.url() + "/query",
             params: {
               pretty: true,
               db: "pm",
-              q: 'select * from "events.' + $localStorage.sensorId + '"'
+              q: 'select * from "events.' + Helper.id() + '"'
             }
           });
         }
         return $q.reject("No url");
       },
       addEvent: function(starts, ends, comment) {
-        if ($localStorage.url && $localStorage.sensorId != null) {
+        if (Helper.boxSet()) {
           return $http({
             method: 'POST',
-            url: $localStorage.url.replace(/\/$/, "") + "/write",
+            url: Helper.url() + "/write",
             params: {
               db: "pm"
             },
-            data: 'events.' + $localStorage.sensorId + ',sensor_id=' + $localStorage.sensorId + ' starts=' + starts + 'i,ends=' + ends + 'i,comment="' + comment + '"',
+            data: 'events.' + Helper.id() + ',sensor_id=' + Helper.id() + ' starts=' + starts + 'i,ends=' + ends + 'i,comment="' + comment + '"',
             transformRequest: false,
             headers: {
               'Content-Type': undefined
@@ -124,11 +127,10 @@ angular.module('pmreader.services', ["ngStorage"])
         }
         return $q.reject("No url");
       },
-      getSensorIds: function(canceler) {
-        if ($localStorage.url) {
+      getSensorIds: function(url, canceler) {
           return $http({
             method: 'GET',
-            url: $localStorage.url.replace(/\/$/, "") + "/query",
+            url: url.replace(/\/$/, "") + "/query",
             params: {
               pretty: true,
               db: "pm",
@@ -148,13 +150,31 @@ angular.module('pmreader.services', ["ngStorage"])
             };
             return ids;
           });
-        }
-        return $q.reject("No url");
       }
     };
   })
-  .factory('Charts', function() {
+  .factory('Helper', function($localStorage) {
     return {
+      boxSet: function() {
+        if ($localStorage.currentBox == null) {
+          return false;
+        }
+        var s = $localStorage.currentBox.split(":::");
+        return !(!(s[0]) || !(s[1]));
+      },
+      url: function() {
+        if ($localStorage.currentBox == null) {
+          return null;
+        }
+        return  $localStorage.currentBox.split(":::")[1].replace(/\/$/, "")
+
+      },
+      id: function() {
+        if ($localStorage.currentBox == null) {
+          return null;
+        }
+        return  $localStorage.currentBox.split(":::")[0]
+      },
       fillChart: function(chartConfig, currentChart) {
         if (currentChart && chartConfig && chartConfig.series) {
           var series = chartConfig.series;
