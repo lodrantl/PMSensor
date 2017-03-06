@@ -1,0 +1,5 @@
+#!/bin/bash
+
+snapcraft clean
+snapcraft
+sudo snap install --devmode --dangerous pmsensor_0.0.1_multi.snap
