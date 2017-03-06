@@ -1,0 +1,49 @@
+name: pmsensor
+version: 0.0.1
+architectures: [amd64, armhf]
+summary: reads stuff
+description: |
+  writes stuff
+grade: devel
+confinement: devmode
+
+apps:
+  influxd:
+    command: bin/influxd.wrapper
+    daemon: simple
+    plugs:
+      - network-bind
+  writer:
+    command: bin/dbwriter.wrapper
+    plugs:
+      - serial-port
+      - network
+      - network-control
+
+parts:
+  influx-setup:
+    plugin: dump
+    source: influx/
+    prime:
+      - conf/default-influxdb.conf
+      - bin/influxd.wrapper
+  influxdb:
+    plugin: dump
+    source: https://dl.influxdata.com/influxdb/releases/influxdb-1.2.0_linux_amd64.tar.gz
+  python-import:
+    plugin: python
+    python-packages:
+       - pyserial
+       - influxdb
+  python-daemon:
+    plugin: dump
+    source: ../connector
+    prime:
+      - pm/dbwriter.py
+      - bin/dbwriter.wrapper
+      - pm/pmreader.py
+      - pm/pmsensor.ini
+    organize:
+      dbwriter.py: pm/dbwriter.py
+      pmreader.py: pm/pmreader.py
+      pmsensor.ini: pm/pmsensor.ini

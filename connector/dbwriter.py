@@ -1,17 +1,23 @@
+#!/usr/bin/env python3
+
 from configparser import ConfigParser
-
 from influxdb import SeriesHelper, InfluxDBClient
-
 from pmreader import PMReader
-
 import urllib.request
 import urllib.error
 import os
+import argparse
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument("config", help="path to the config file")
+args = parser.parse_args()
+
 
 folder = os.path.dirname(os.path.abspath(os.path.realpath(__file__)))
 
 config_parser = ConfigParser()
-config_parser.read(folder + '/pmsensor.ini')
+config_parser.read(args.config)
 config = config_parser['DEFAULT']
 
 def wait_for_influx(url):
@@ -36,18 +42,12 @@ myclient.create_retention_policy('pm_policy', 'INF', 3, default=True)
 
 
 class PMSeriesHelper(SeriesHelper):
-    # Meta class stores time series helper configuration.
     class Meta:
-        # The client should be an instance of InfluxDBClient.
         client = myclient
-        # The series name must be a string. Add dependent fields/tags in curly brackets.
         series_name = 'particulates.{sensor_id}'
-        # Defines all the fields in this time series.
         fields = ['pm_25', 'pm_10']
-        # Defines all the tags for the series.
         tags = ['sensor_id']
         bulk_size = 1
-        # autocommit must be set to True when using bulk_size
         autocommit = True
 
 
