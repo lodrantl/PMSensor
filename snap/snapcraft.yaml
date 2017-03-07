@@ -13,7 +13,7 @@ apps:
     daemon: simple
     plugs:
       - network-bind
-  data_export:
+  data-export:
     command: bin/export_data
     daemon: simple
     plugs:
