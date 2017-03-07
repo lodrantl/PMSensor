@@ -4,6 +4,13 @@ angular.module('pmreader.controllers')
 
     vm.$storage = $localStorage;
 
+    vm.sId = Helper.id();
+    $scope.$watch(function() {
+      return Helper.id();
+    }, function(news, olds) {
+      vm.sId = Helper.id();
+    });
+
     //chart configuration
     $rootScope.chartConfig = {
       chart: {

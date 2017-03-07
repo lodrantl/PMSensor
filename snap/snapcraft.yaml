@@ -14,7 +14,7 @@ apps:
     plugs:
       - network-bind
   data-export:
-    command: bin/export_data
+    command: bin/data-exporter.wrapper
     daemon: simple
     plugs:
       - network
@@ -47,10 +47,13 @@ parts:
     source: ../connector
     prime:
       - pm/dbwriter.py
+      - pm/data_exporter.py
       - bin/dbwriter.wrapper
+      - bin/data-exporter.wrapper
       - pm/pmreader.py
       - pm/pmsensor.ini
     organize:
       dbwriter.py: pm/dbwriter.py
       pmreader.py: pm/pmreader.py
       pmsensor.ini: pm/pmsensor.ini
+      data_exporter.py: pm/data_exporter.py

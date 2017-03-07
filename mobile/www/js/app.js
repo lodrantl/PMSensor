@@ -31,14 +31,16 @@ angular.module('pmreader', ['ionic', 'pmreader.controllers', 'pmreader.services'
     }
 
     if ($window.cordova && $window.cordova.plugins && $window.cordova.plugins.zeroconf) {
-      cordova.plugins.zeroconf.watch('_influxdb._tcp.local.', function(result) {
+      cordova.plugins.zeroconf.watch('_influxdb._tcp', '.local.', function(result) {
         var action = result.action;
         var service = result.service;
+        var sensorId = service.txtRecord.sensorId;
+
         if (action == 'added') {
           $log.log('service added', service);
-          var e = {'url': service.addresses[0] + ":" + service.port, 'id': null};
+          var e = {'url': 'http://' + service.ipv4Addresses[0] + ":" + service.port, 'id': sensorId};
           for (c in $localStorage.boxes) {
-            if (c.url = e.url) {
+            if (c.url == e.url && c.id == e.id) {
               return;
             }
           }

@@ -3,6 +3,14 @@ angular.module('pmreader.controllers').controller('EventsController', function($
 
   vm.$storage = $localStorage;
 
+  vm.sId = Helper.id();
+  $scope.$watch(function() {
+    return Helper.id();
+  }, function(news, olds) {
+    vm.sId = Helper.id();
+  });
+
+  vm.sId =
   vm.refresh = function() {
     Data.getEvents().then(function(response) {
       var e = []

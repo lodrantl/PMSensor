@@ -1,0 +1,8 @@
+#!/bin/sh
+
+CONF_PATH="$SNAP/pm/pmsensor.ini"
+if [ -e "$SNAP_USER_COMMON/pmsensor.ini" ] ; then
+    CONF_PATH="$SNAP_USER_COMMON/pmsensor.ini"
+fi
+
+python3 $SNAP/pm/data_exporter.py $CONF_PATH

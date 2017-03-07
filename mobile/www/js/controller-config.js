@@ -2,7 +2,6 @@ angular.module('pmreader.controllers')
   .controller('ConfigController', function($stateParams, $scope, $localStorage, Data, Helper, $log, $q, $ionicModal, $rootScope) {
     var vm = this;
     vm.$storage = $localStorage;
-    $log.log($stateParams);
 
     //Create box modal
     $ionicModal.fromTemplateUrl('templates/add-box.html', {
@@ -50,7 +49,6 @@ angular.module('pmreader.controllers')
     };
 
     $scope.closeModal = function() {
-      $scope.found = false;
       vm.modal.hide();
     };
     vm.openModal = function(arg) {
@@ -59,6 +57,7 @@ angular.module('pmreader.controllers')
         $scope.found = true;
       } else {
         $scope.editedBox = {};
+        $scope.found = false;
       }
       $scope.state = "";
       $scope.ids = [];
