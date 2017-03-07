@@ -31,8 +31,22 @@ A python application for working with SDS011 PM sensor on Rasberry PI.
     ```
     snap install pmsensor --devmode --beta
     ```
-    
+
 All done
+
+## Wifi AP snap
+
+We will configure the wifi access point with wifi-ap snap
+```
+snap install wifi-ap
+wifi-ap.config set wifi.security=wpa2 wifi.security-passphrase=enostavno
+wifi-ap.config set wifi.ssid=rpibox-lj
+
+wifi-ap.status
+wifi-ap.config set disabled=0 (if disabled)
+
+wifi-ap.config get (shows all other config options)
+```
 
 
 ## Server configuration (deprecated)
