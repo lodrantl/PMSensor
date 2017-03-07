@@ -15,10 +15,10 @@ apps:
       - network-bind
   writer:
     command: bin/dbwriter.wrapper
+    daemon: simple
     plugs:
       - serial-port
       - network
-      - network-control
 
 parts:
   influx-setup:
