@@ -1,11 +1,5 @@
 #!/bin/sh
 
-echo $SNAP
-echo $SNAP_USER_DATA
-echo $SNAP_DATA
-echo $SNAP_USER_COMMON
-echo $SNAP_COMMON
-
 CONF_PATH="$SNAP/pm/pmsensor.ini"
 if [ -e "$SNAP_USER_COMMON/pmsensor.ini" ] ; then
     CONF_PATH="$SNAP_USER_COMMON/pmsensor.ini"

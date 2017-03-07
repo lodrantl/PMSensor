@@ -1,6 +1,6 @@
 name: pmsensor
 version: 0.0.1
-architectures: [amd64, armhf]
+architectures: [armhf]
 summary: reads stuff
 description: |
   writes stuff
