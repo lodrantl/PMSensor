@@ -2,7 +2,40 @@
 
 A python application for working with SDS011 PM sensor on Rasberry PI.
 
-## Server configuration
+## Ubuntu Core Snap
+
+1. Install Ubuntu Core 16 on Raspberry PI [(Guide)](https://developer.ubuntu.com/core/get-started/raspberry-pi-2-3)
+2. Connect to RPi with ssh
+3. generate ssh keys
+    ```
+    sudo su
+    ssh-keygen -t rsa -b 4096 -C "{{boxid}}@artes.si"
+    ```  
+4. append /root/.ssh/id_rsa.pub to /var/lib/influx/.ssh/authorized_keys on haag.artes.si
+5. test connection `ssh influxdb@haag.artes.si`
+6. create file /root/snap/pmsensor.init with following contents (create it in text-editor then `echo "content" > /root/snap/pmsensor/common/pmsensor.ini` or learn to use vi)
+    ```
+	[DEFAULT]
+
+	host = {{box wifi ip}}
+	user = admin
+	password = admin
+	port = 8086
+	dbname = pm
+
+	sensor_id = {{boxid}}
+
+	com_port = /dev/ttyUSB0
+    ```
+7. Install pmsensor snap
+    ```
+    snap install pmsensor --devmode --beta
+    ```
+    
+All done
+
+
+## Server configuration (deprecated)
 
 ### DBWriter
 1. Install InfluxDB on your Raspberry PI [(Guide)](https://docs.influxdata.com/influxdb/v1.0/introduction/installation/)
