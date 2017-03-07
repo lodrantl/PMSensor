@@ -1,0 +1,9 @@
+#!/bin/bash
+
+while true; do
+    if ping -c 1 haag.artes.si &> /dev/null
+	then
+	  ssh -R 9098:localhost:8088 influxdb@haag.artes.si -p 65022 /usr/local/bin/import-influx
+	fi
+    sleep 90m
+done

@@ -12,11 +12,11 @@ class PMReader(threading.Thread):
 
     def close(self):
         self.polling = False
-        self.serial.close()
+
 
     def run(self):
         self.polling = True
-        while self.polling:
+        while True:
             old_byte = new_byte = b'\x00'
 
             while not (old_byte == b'\xaa' and new_byte == b'\xc0'):
@@ -27,6 +27,10 @@ class PMReader(threading.Thread):
 
             self.function(self.readValues(package))
 
+            if not self.polling:
+                self.serial.close()
+                break
+                
     def readValues(self, package):
         unpacked = struct.unpack('<HHxxBB', package)
         print("Package: {}. Unpacked: {}".format(package, unpacked))

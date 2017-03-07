@@ -13,12 +13,16 @@ apps:
     daemon: simple
     plugs:
       - network-bind
+  data_export:
+    command: bin/export_data
+    daemon: simple
+    plugs:
+      - network
   writer:
     command: bin/dbwriter.wrapper
     plugs:
       - serial-port
       - network
-      - network-control
 
 parts:
   influx-setup:
@@ -27,6 +31,7 @@ parts:
     prime:
       - conf/default-influxdb.conf
       - bin/influxd.wrapper
+      - bin/export_data
   influxdb:
     plugin: dump
     source: https://dl.influxdata.com/influxdb/releases/influxdb-1.2.0_linux_armhf.tar.gz
@@ -35,6 +40,7 @@ parts:
     python-packages:
        - pyserial
        - influxdb
+       - zeroconf
   python-daemon:
     plugin: dump
     source: ../connector

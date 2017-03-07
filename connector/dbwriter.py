@@ -1,13 +1,18 @@
 #!/usr/bin/env python3
 
-from configparser import ConfigParser
-from influxdb import SeriesHelper, InfluxDBClient
-from pmreader import PMReader
 import urllib.request
 import urllib.error
 import os
 import argparse
+import socket
+import sys
+import signal
 
+from configparser import ConfigParser
+from influxdb import SeriesHelper, InfluxDBClient
+from pmreader import PMReader
+from time import sleep
+from zeroconf import ServiceInfo, Zeroconf
 
 parser = argparse.ArgumentParser()
 parser.add_argument("config", help="path to the config file")
@@ -58,3 +63,25 @@ def store(data):
 
 sensor = PMReader(config['com_port'], store)
 sensor.start()
+
+#Register mDNS
+
+desc = {'sensorId': config['sensor_id']}
+
+info = ServiceInfo("_influxdb._tcp.local.",
+                       "PMBox ID " + config['sensor_id'] + "._influxdb._tcp.local.",
+                       socket.inet_aton(config['host']), int(config['port']), 0, 0,
+                       desc, "rpi2.local.")
+
+print("Registering mDNS service.")
+zeroconf = Zeroconf()
+zeroconf.register_service(info)
+        
+def on_kill(e, t):
+    print("Unregistering...")
+    zeroconf.unregister_service(info)
+    zeroconf.close()
+    sensor.close()
+
+signal.signal(signal.SIGINT, on_kill)
+signal.signal(signal.SIGTERM, on_kill)
