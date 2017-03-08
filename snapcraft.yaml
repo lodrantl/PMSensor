@@ -11,9 +11,13 @@ apps:
     daemon: simple
     plugs:
       - network-bind
+  data-exporterd:
+    command: bin/data-exporterd.wrapper
+    daemon: simple
+    plugs:
+      - network
   data-exporter:
     command: bin/data-exporter.wrapper
-    daemon: simple
     plugs:
       - network
   writer:

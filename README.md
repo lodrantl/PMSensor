@@ -10,7 +10,7 @@ Server reads data from the sensor and writes it into an InfluxDB also installed 
 
 1. Install Ubuntu Core 16 on Raspberry PI [(Guide)](https://developer.ubuntu.com/core/get-started/raspberry-pi-2-3)
 2. Connect to RPi with ssh
-3. create file /root/snap/pmsensor.init with following contents (create it in text-editor then `echo "content" > /root/snap/pimenk/common/pimenk.ini` or learn to use vi)
+3. create file /root/snap/pimenk/common/pimenk.ini with following contents (create it in text-editor then `echo "content" > /root/snap/pimenk/common/pimenk.ini` or learn to use vi)
     ```
     [DEFAULT]
 
@@ -22,7 +22,6 @@ Server reads data from the sensor and writes it into an InfluxDB also installed 
     influx_port = 8086
     influx_user = admin
     influx_password = admin
-
 
     ; Remote InfluxDB configuration for continous sync (every 90 min)
     influx_remote_host = haag.artes.si
@@ -37,9 +36,9 @@ Server reads data from the sensor and writes it into an InfluxDB also installed 
     ; Serial port configuration
     com_port = /dev/ttyUSB0
     ```
-4. Install pmsensor snap
+4. Install pimenk snap
     ```
-    snap install pmsensor --devmode --beta
+    snap install pimenk --devmode --beta
     ```
 
 All done
@@ -59,4 +58,4 @@ wifi-ap.config get (shows all other config options)
 ```
 
 
-## [Server configuration without Snap (deprecated)](SERVER.md)
+### [Server configuration without Snap (not updated)](SERVER.md)

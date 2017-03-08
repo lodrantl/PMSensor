@@ -12,24 +12,26 @@ from time import sleep
 
 parser = argparse.ArgumentParser()
 parser.add_argument('config', help='path to the config file')
+parser.add_argument("--daemon", help="enable daemon mode", action="store_true")
 args = parser.parse_args()
 config_parser = ConfigParser()
 config_parser.read(args.config)
 config = config_parser['DEFAULT']
 
 
-def wait_for_influx(url):
+def check_influx(url, blocking=True):
     print('Waiting for InfluxDB to start at: {}'.format(url))
     while True:
         try:
-            urllib.request.urlopen(url, timeout=1)
+            urllib.request.urlopen(url, timeout=3)
             print('InfluxDB accessible')
-            return
+            return True
         except urllib.error.URLError:
-            pass
+            if not blocking:
+                return False
 
 
-wait_for_influx(
+check_influx(
     'http://{}:{}/ping'.format(config['influx_host'], config['influx_port']))
 
 
@@ -96,18 +98,31 @@ class GracefulKiller:
         self.kill_now = True
 
 
-killer = GracefulKiller()
+if args.daemon:
+    killer = GracefulKiller()
+    migrate_in = 30
+    while True:
+        migrate_in -= 1
+        if migrate_in <= 0:
+            if config['influx_remote_https'] == "true":
+                available = check_influx(
+                    'https://{}:{}/ping'.format(config['influx_remote_host'], config['influx_remote_port']))
+            else:
+                available = check_influx(
+                    'http://{}:{}/ping'.format(config['influx_remote_host'], config['influx_remote_port']))
+            if available:
+                print('Started migration.')
+                n = migrate()
+                print('Migrated {} points.'.format(n))
+                migrate_in = 60 * 90
+            else:
+                migrate_in = 30
 
-s = 3601
-
-while True:
-    if s > 3600:
-        print('Started migration.')
-        n = migrate()
-        print('Migrated {} points.'.format(n))
-        s = 0
-    if killer.kill_now:
-        print('Stopping pmsensor data exporter...')
-        break
-    sleep(1)
-    s = s + 1
+        if killer.kill_now:
+            print('Stopping pmsensor data exporter...')
+            break
+        sleep(1)
+else:
+    print('Started migration.')
+    n = migrate()
+    print('Migrated {} points.'.format(n))
