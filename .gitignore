@@ -3,8 +3,8 @@
 __pycache__
 
 
-snap/parts
-snap/prime
-snap/stage
+parts
+prime
+stage
 
 *.snap

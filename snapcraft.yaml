@@ -44,7 +44,7 @@ parts:
        - zeroconf
   python-daemon:
     plugin: dump
-    source: ../connector
+    source: connector/
     prime:
       - pm/dbwriter.py
       - pm/data_exporter.py
