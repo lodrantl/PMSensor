@@ -1,33 +1,43 @@
-# PMSensor
+# Pimenk
 
-A python application for working with SDS011 PM sensor on Rasberry PI.
+A suite of applications designed for work with SDS011 PM sensor on Rasberry PI.
+
+It consists of a client part written in Ionic framework for Android and published in Google Play store and a server part written mostly in python and packaged as a Ubuntu Core Snap.
+
+Server reads data from the sensor and writes it into an InfluxDB also installed with the Snap, while the mobile app visualizes this data, and allows you to record events.
 
 ## Ubuntu Core Snap
 
 1. Install Ubuntu Core 16 on Raspberry PI [(Guide)](https://developer.ubuntu.com/core/get-started/raspberry-pi-2-3)
 2. Connect to RPi with ssh
-3. generate ssh keys
+3. create file /root/snap/pmsensor.init with following contents (create it in text-editor then `echo "content" > /root/snap/pimenk/common/pimenk.ini` or learn to use vi)
     ```
-    sudo su
-    ssh-keygen -t rsa -b 4096 -C "{{boxid}}@artes.si"
-    ```  
-4. append /root/.ssh/id_rsa.pub to /var/lib/influx/.ssh/authorized_keys on haag.artes.si
-5. test connection `ssh influxdb@haag.artes.si`
-6. create file /root/snap/pmsensor.init with following contents (create it in text-editor then `echo "content" > /root/snap/pmsensor/common/pmsensor.ini` or learn to use vi)
+    [DEFAULT]
+
+    ; Hostname or IP propagated via mDNS to mobile apps
+    propagated_host = 192.168.13.103
+
+    ; Local InfluxDB configuration
+    influx_host = localhost
+    influx_port = 8086
+    influx_user = admin
+    influx_password = admin
+
+
+    ; Remote InfluxDB configuration for continous sync (every 90 min)
+    influx_remote_host = haag.artes.si
+    influx_remote_port = 8086
+    influx_remote_https = false
+    influx_remote_user = admin
+    influx_remote_password = admin
+
+    ; ID given to the current sensor (unique string)
+    sensor_id = lj
+
+    ; Serial port configuration
+    com_port = /dev/ttyUSB0
     ```
-	[DEFAULT]
-
-	host = {{box wifi ip}}
-	user = admin
-	password = admin
-	port = 8086
-	dbname = pm
-
-	sensor_id = {{boxid}}
-
-	com_port = /dev/ttyUSB0
-    ```
-7. Install pmsensor snap
+4. Install pmsensor snap
     ```
     snap install pmsensor --devmode --beta
     ```
@@ -49,50 +59,4 @@ wifi-ap.config get (shows all other config options)
 ```
 
 
-## Server configuration (deprecated)
-
-### DBWriter
-1. Install InfluxDB on your Raspberry PI [(Guide)](https://docs.influxdata.com/influxdb/v1.0/introduction/installation/)
-2. Install Python3, git and pip3
-3. Run this command to install the required Python modules
-
-    ```
-    sudo pip3 install pyserial influxdb
-    ```
-4. clone this repository
-
-    ```
-    git clone https://github.com/lodrantl/PMSensor.git
-    ```
-5. modify connector/pmsensor.ini to match the settings of your InfluxDB database and serial port
-6. run dbwriter.py
-
-### Service
-1. Copy pmsensor.service into `/lib/systemd/system`
-2. Install to /usr/local/bin
-```
-sudo ln -s /home/pi/Workspace/PMSensor/connector/dbwriter.py /usr/local/bin/dbwriter
-sudo chown +x /usr/local/bin/dbwriter
-```
-3. Enable and start
-```
-sudo systemctl daemon-reload
-sudo systemctl enable pmsensor
-sudo systemctl start pmsensor
-```
-
-### Avahi zeroconf
-1. Install avahi-daemon `sudo apt install avahi-daemon`
-2. Copy influxdb.service to `/etc/avahi/services`
-3. Run `sudo systemctl restart avahi-daemon.service`
-
-## Client configuration
-
-1. Install PM Sensor Android from [Google Play Store](https://play.google.com/apps/testing/si.lodrant.pm_sensor)
-2. In the config tab, set the host and sensor id to match server configuration (default InfluxDB port is 8086)
-
-## Data migration
-
-1. On the main server clone this repository
-2. Set the HOST variable to the ip of the Pi with the data
-3. Execute import_data.sh as root
+## [Server configuration without Snap (deprecated)](SERVER.md)
