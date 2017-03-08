@@ -3,7 +3,7 @@ Description=PMSensor daemon
 After=influxdb.service
 
 [Service]
-ExecStart=/usr/local/bin/dbwriter
+ExecStart=/usr/local/bin/db-writer
 Restart=on-failure
 
 [Install]

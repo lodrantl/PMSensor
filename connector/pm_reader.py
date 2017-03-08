@@ -13,7 +13,6 @@ class PMReader(threading.Thread):
     def close(self):
         self.polling = False
 
-
     def run(self):
         self.polling = True
         while True:
@@ -30,18 +29,19 @@ class PMReader(threading.Thread):
             if not self.polling:
                 self.serial.close()
                 break
-                
+
     def readValues(self, package):
         unpacked = struct.unpack('<HHxxBB', package)
-        print("Package: {}. Unpacked: {}".format(package, unpacked))
+        # print('Package: {}. Unpacked: {}'.format(package, unpacked))
 
         checksum = sum(package[:6]) & 255
 
         if checksum != package[6]:
-            print("Checksums do not match. Calculated: {},  Recieved: {}".format(checksum, package[6]))
+            print('Checksums do not match. Calculated: {},  Recieved: {}'
+                  .format(checksum, package[6]))
             return None, None
         if package[7] != 171:
-            print("Recieved package did not end correctly.")
+            print('Recieved package did not end correctly.')
             return None, None
 
         pm_25 = unpacked[0] / 10
@@ -49,11 +49,10 @@ class PMReader(threading.Thread):
         return pm_25, pm_10
 
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     def printValues(data):
         pm_25, pm_10 = data
-        print("PM2.5 value: {} μg/m^3, PM10 {} μg/m^3".format(pm_25, pm_10))
+        print('PM2.5 value: {} μg/m^3, PM10 {} μg/m^3'.format(pm_25, pm_10))
 
-    sensor = PMReader("COM3", printValues)
+    sensor = PMReader('COM3', printValues)
     sensor.start()

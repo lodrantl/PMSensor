@@ -1,9 +1,7 @@
-name: pmsensor
+name: pimenk
 version: 0.0.1
 architectures: [armhf]
-summary: reads stuff
-description: |
-  writes stuff
+summary: Reads data from SDS011 PM sensor and writes it into InfluxDB
 grade: devel
 confinement: devmode
 
@@ -13,13 +11,13 @@ apps:
     daemon: simple
     plugs:
       - network-bind
-  data-export:
+  data-exporter:
     command: bin/data-exporter.wrapper
     daemon: simple
     plugs:
       - network
   writer:
-    command: bin/dbwriter.wrapper
+    command: bin/db-writer.wrapper
     daemon: simple
     plugs:
       - serial-port
@@ -32,7 +30,6 @@ parts:
     prime:
       - conf/default-influxdb.conf
       - bin/influxd.wrapper
-      - bin/export_data
   influxdb:
     plugin: dump
     source: https://dl.influxdata.com/influxdb/releases/influxdb-1.2.0_linux_armhf.tar.gz
@@ -46,14 +43,14 @@ parts:
     plugin: dump
     source: connector/
     prime:
-      - pm/dbwriter.py
-      - pm/data_exporter.py
-      - bin/dbwriter.wrapper
+      - bin/db-writer.wrapper
       - bin/data-exporter.wrapper
-      - pm/pmreader.py
-      - pm/pmsensor.ini
+      - pimenk/db_writer.py
+      - pimenk/data_exporter.py
+      - pimenk/pm_reader.py
+      - pimenk/pimenk.ini
     organize:
-      dbwriter.py: pm/dbwriter.py
-      pmreader.py: pm/pmreader.py
-      pmsensor.ini: pm/pmsensor.ini
-      data_exporter.py: pm/data_exporter.py
+      db_writer.py: pimenk/db_writer.py
+      pm_reader.py: pimenk/pm_reader.py
+      pimenk.ini: pimenk/pimenk.ini
+      data_exporter.py: pimenk/data_exporter.py
