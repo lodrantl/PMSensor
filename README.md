@@ -26,7 +26,7 @@ Server reads data from the sensor and writes it into an InfluxDB also installed 
     ; Remote InfluxDB configuration for continous sync (every 90 min)
     influx_remote_host = haag.artes.si
     influx_remote_port = 8086
-    influx_remote_https = false
+    influx_remote_https = true
     influx_remote_user = admin
     influx_remote_password = admin
 
