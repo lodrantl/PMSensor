@@ -1,11 +1,15 @@
 import serial
 import threading
 import struct
+import time
+
+import functools
+print = functools.partial(print, flush=True)
 
 
 class PMReader(threading.Thread):
     def __init__(self, port, function):
-        self.serial = serial.Serial(port)
+        self.port = port
         self.function = function
         self.polling = False
         threading.Thread.__init__(self)
@@ -15,22 +19,42 @@ class PMReader(threading.Thread):
 
     def run(self):
         self.polling = True
+
         while True:
-            old_byte = new_byte = b'\x00'
+            try:
+                self.serial = serial.Serial(self.port)
+                print('Serial connection established at ', self.port)
+                while True:
+                    try:
+                        self.readValues()
+                        if not self.polling:
+                            self.serial.close()
+                            return
 
-            while not (old_byte == b'\xaa' and new_byte == b'\xc0'):
-                old_byte = new_byte
-                new_byte = self.serial.read(1)
+                    except serial.SerialException as e:
+                        print('Read data error: ', e)
+                        self.serial.close()
+                        break
 
-            package = self.serial.read(8)
+            except serial.SerialException as e:
+                print('Serial port connection error (retry in 30s): ', e)
+                for i in range(30):
+                    if not self.polling:
+                        return
+                    time.sleep(1)
 
-            self.function(self.readValues(package))
+    def readValues(self):
+        old_byte = new_byte = b'\x00'
 
-            if not self.polling:
-                self.serial.close()
-                break
+        while not (old_byte == b'\xaa' and new_byte == b'\xc0'):
+            old_byte = new_byte
+            new_byte = self.serial.read(1)
 
-    def readValues(self, package):
+        package = self.serial.read(8)
+
+        self.processValues(package)
+
+    def processValues(self, package):
         unpacked = struct.unpack('<HHxxBB', package)
         # print('Package: {}. Unpacked: {}'.format(package, unpacked))
 
@@ -46,7 +70,7 @@ class PMReader(threading.Thread):
 
         pm_25 = unpacked[0] / 10
         pm_10 = unpacked[1] / 10
-        return pm_25, pm_10
+        self.function((pm_25, pm_10))
 
 
 if __name__ == '__main__':
