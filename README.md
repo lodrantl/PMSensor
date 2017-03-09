@@ -1,4 +1,4 @@
-# Pimenk
+# piment
 
 A suite of applications designed for work with SDS011 PM sensor on Rasberry PI.
 
@@ -10,7 +10,7 @@ Server reads data from the sensor and writes it into an InfluxDB also installed 
 
 1. Install Ubuntu Core 16 on Raspberry PI [(Guide)](https://developer.ubuntu.com/core/get-started/raspberry-pi-2-3)
 2. Connect to RPi with ssh
-3. create file /root/snap/pimenk/common/pimenk.ini with following contents (create it in text-editor then `echo "content" > /root/snap/pimenk/common/pimenk.ini` or learn to use vi)
+3. create file /root/snap/piment/common/piment.ini with following contents (create it in text-editor then `echo "content" > /root/snap/piment/common/piment.ini` or learn to use vi)
     ```
     [DEFAULT]
 
@@ -26,7 +26,7 @@ Server reads data from the sensor and writes it into an InfluxDB also installed 
     ; Remote InfluxDB configuration for continous sync (every 90 min)
     influx_remote_host = haag.artes.si
     influx_remote_port = 8086
-    influx_remote_https = false
+    influx_remote_https = true
     influx_remote_user = admin
     influx_remote_password = admin
 
@@ -36,9 +36,9 @@ Server reads data from the sensor and writes it into an InfluxDB also installed 
     ; Serial port configuration
     com_port = /dev/ttyUSB0
     ```
-4. Install pimenk snap
+4. Install piment snap
     ```
-    snap install pimenk --devmode --beta
+    snap install piment --devmode --beta
     ```
 
 All done
