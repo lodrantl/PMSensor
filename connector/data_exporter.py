@@ -54,6 +54,7 @@ target = InfluxDBClient(
     config['influx_remote_password'],
     'pm',
     config['influx_remote_https'] == 'true',
+    True,
     timeout=30
 )
 
