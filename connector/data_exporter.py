@@ -137,9 +137,7 @@ def migrate_events():
             'fields': {
                 'comment': p['comment'],
                 'ends': int(p['ends']),
-                'starts': int(p['starts']),
-                'pm_10': float(p['pm_10']),
-                'pm_25': float(p['pm_25'])
+                'starts': int(p['starts'])
             }
         })
 
@@ -184,7 +182,7 @@ if args.daemon:
                 migrate_in = 60
 
         if killer.kill_now:
-            print('Stopping pmsensor data exporter...')
+            print('Stopping PiMent data exporter...')
             break
         sleep(1)
 else:

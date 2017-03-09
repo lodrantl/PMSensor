@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="si.lodrant.pm_sensor" version="1.1.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>PM Sensor</name>
+<widget id="si.artes.piment" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>PiMent</name>
   <description>&#xD;
-        Android application for viewing current PM data&#xD;
+        Visualize particulate matter data collected by PiMent Raspberry PI service.&#xD;
     </description>
-  <author email="luka.lodrant@gmail.com" href="http://www.lodrant.top">&#xD;
+  <author email="luka.lodrant@gmail.com" href="https://github.com/lodrantl">&#xD;
       Luka Lodrant&#xD;
     </author>
   <content src="index.html"/>

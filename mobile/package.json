@@ -1,7 +1,7 @@
 {
-  "name": "pm_sensor",
-  "version": "1.1.1",
-  "description": "pm_sensor: Collecting PM data from IonicDB",
+  "name": "piment",
+  "version": "1.0.0",
+  "description": "Visualize particulate matter data collected by PiMent Raspberry PI service",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",

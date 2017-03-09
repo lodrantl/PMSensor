@@ -1,7 +1,10 @@
 angular.module('pmreader.controllers')
   .controller('ConfigController', function($stateParams, $scope, $localStorage, Data, Helper, $log, $q, $ionicModal, $rootScope) {
     var vm = this;
+    vm.open = false;
+
     vm.$storage = $localStorage;
+    $log.log("Config controller created with: ", $stateParams.d)
 
     //Create box modal
     $ionicModal.fromTemplateUrl('templates/add-box.html', {
@@ -12,7 +15,15 @@ angular.module('pmreader.controllers')
         vm.openModal($stateParams.d);
         $stateParams.d = null;
       }
+      var x = $rootScope.$on('boxFound', function(arg, arg2) {
+        vm.openModal(arg2);
+      });
+
+      $scope.$on('$destroy', function() {
+        x();
+      });
     });
+
     $scope.createBox = function(u) {
       if (!$localStorage.boxes) {
         $localStorage.boxes = []
@@ -49,33 +60,30 @@ angular.module('pmreader.controllers')
     };
 
     $scope.closeModal = function() {
+      vm.open = false;
       vm.modal.hide();
     };
+
     vm.openModal = function(arg) {
-      if (arg) {
-        $scope.editedBox = arg;
-        $scope.found = true;
-      } else {
-        $scope.editedBox = {};
-        $scope.found = false;
+      if (!vm.open) {
+        vm.open = true;
+        if (arg) {
+          $scope.editedBox = arg;
+          $scope.found = true;
+        } else {
+          $scope.editedBox = {};
+          $scope.found = false;
+        }
+        setIDs();
+        vm.modal.show();
       }
-      $scope.state = "";
-      $scope.ids = [];
-      vm.modal.show();
     };
-
-
-    var x = $rootScope.$on('boxFound', function(arg, arg2) {
-      vm.openModal(arg2);
-    });
-
-    $scope.$on('$destroy', function() {
-      x();
-    });
 
     //Nasty bit of promise hacking to make the GUI nicely responsive
     function setIDs() {
       if (!$scope.editedBox || !$scope.editedBox.url) {
+        $scope.state = "error";
+        $scope.ids = [];
         return;
       }
       if (vm.canceler) {
@@ -114,8 +122,6 @@ angular.module('pmreader.controllers')
         }
       );
     }
-
-    setIDs();
     $scope.$watch("editedBox.url", function(news, olds) {
       if (news != olds) {
         setIDs()

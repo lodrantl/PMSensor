@@ -2,12 +2,15 @@ angular.module('pmreader.services', ["ngStorage"])
   .factory('Data', function($http, $localStorage, $q, $log, $rootScope, $timeout, Helper) {
     //Select data where time is later than
     function query(data, time) {
-      return ' SELECT ' + data + ' FROM "particulates" WHERE sensor_id = \'' + Helpers.id() + '\' AND time > ' + time + ' ';
+      return ' SELECT ' + data + ' FROM "particulates" WHERE sensor_id = \'' + Helper.id() + '\' AND time > ' + time + ' ';
     };
     //Group data, so at most 150 points are requested
-    function groupTime(time) {
+    function groupTime(time, unit) {
       var g = time / 150;
-      return ' GROUP BY *, time(' + Math.ceil(g) + $localStorage.timeUnit + ') ';
+      if (!unit) {
+        unit = $localStorage.timeUnit
+      }
+      return ' GROUP BY *, time(' + Math.ceil(g) + unit + ') ';
     };
 
     //Requests latest value and writes it into rootScope
@@ -90,7 +93,7 @@ angular.module('pmreader.services', ["ngStorage"])
             params: {
               pretty: true,
               db: "pm",
-              q: query('MEAN(pm_10), MEAN(pm_25)', "'" + start + "'") + 'AND time < \'' + end + "'" + groupTime(time)
+              q: query('MEAN(pm_10), MEAN(pm_25)', "'" + start + "'") + 'AND time < \'' + end + "'" + groupTime(time, 's')
             }
           });
         }
@@ -104,7 +107,7 @@ angular.module('pmreader.services', ["ngStorage"])
             params: {
               pretty: true,
               db: "pm",
-              q: 'select * from "events" where sensor_id = \'' + Helper.id() + "'"
+              q: 'select starts,ends,comment from "events" where sensor_id = \'' + Helper.id() + "'"
             }
           });
         }
@@ -139,10 +142,12 @@ angular.module('pmreader.services', ["ngStorage"])
             timeout: canceler.promise
           }).then(function(response) {
             var ids = [];
-            if (response.data.results[0].series) {
-              for (s in response.data.results[0].series) {
-                if (s.tags && s.tag.sensor_id) {
-                  ids.push(s.tag.sensor_id);
+            var series = response.data.results[0].series;
+
+            if (series) {
+              for (var i = 0; i < series.length; i++) {
+                if (series[i].tags && series[i].tags.sensor_id) {
+                  ids.push(series[i].tags.sensor_id);
                 }
               }
             };

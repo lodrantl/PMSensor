@@ -39,7 +39,8 @@ angular.module('pmreader', ['ionic', 'pmreader.controllers', 'pmreader.services'
         if (action == 'added') {
           $log.log('service added', service);
           var e = {'url': 'http://' + service.ipv4Addresses[0] + ":" + service.port, 'id': sensorId};
-          for (c in $localStorage.boxes) {
+          for (var j = 0; j < $localStorage.boxes.length; j++) {
+            c = $localStorage.boxes[j]
             if (c.url == e.url && c.id == e.id) {
               return;
             }
