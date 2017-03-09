@@ -166,10 +166,10 @@ if args.daemon:
         if migrate_in <= 0:
             if config['influx_remote_https'] == "true":
                 available = check_influx(
-                    'https://{}:{}/ping'.format(config['influx_remote_host'], config['influx_remote_port']))
+                    'https://{}:{}/ping'.format(config['influx_remote_host'], config['influx_remote_port']), blocking=False)
             else:
                 available = check_influx(
-                    'http://{}:{}/ping'.format(config['influx_remote_host'], config['influx_remote_port']))
+                    'http://{}:{}/ping'.format(config['influx_remote_host'], config['influx_remote_port']), blocking=False)
             if available:
                 print('Started migration.')
                 try:
@@ -181,7 +181,7 @@ if args.daemon:
                 migrate_in = 60 * 90
             else:
                 print('Remote InfluxDB unavailable.')
-                migrate_in = 30
+                migrate_in = 60
 
         if killer.kill_now:
             print('Stopping pmsensor data exporter...')
