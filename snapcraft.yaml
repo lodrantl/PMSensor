@@ -2,16 +2,24 @@ name: pimenk
 version: 0.0.1
 architectures: [armhf]
 summary: Reads data from SDS011 PM sensor and writes it into InfluxDB
+description: |
+  Installs local InfluxDB in which it writes data recieved from serial PM sensor
+  and syncs it to a remote InfluxDB instance every 90 min. It also propagates influx-setup
+  local InfluxDB installation via mDNS/bonjour.
 grade: devel
 confinement: devmode
 
 apps:
+  influx:
+    command: usr/bin/influx
+    plugs:
+      - network
   influxd:
     command: bin/influxd.wrapper
     daemon: simple
     plugs:
       - network-bind
-  data-exporterd:
+  exporterd:
     command: bin/data-exporterd.wrapper
     daemon: simple
     plugs:
@@ -49,6 +57,7 @@ parts:
     prime:
       - bin/db-writer.wrapper
       - bin/data-exporter.wrapper
+      - bin/data-exporterd.wrapper
       - pimenk/db_writer.py
       - pimenk/data_exporter.py
       - pimenk/pm_reader.py
