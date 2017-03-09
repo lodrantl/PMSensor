@@ -23,6 +23,10 @@ angular.module('pmreader', ['ionic', 'pmreader.controllers', 'pmreader.services'
       StatusBar.styleDefault();
     }
 
+    if (!$localStorage.boxes) {
+      $localStorage.boxes = [];
+    }
+
     if (!$localStorage.time) {
       $localStorage.time = 60;
     }
