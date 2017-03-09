@@ -2,7 +2,7 @@ angular.module('pmreader.services', ["ngStorage"])
   .factory('Data', function($http, $localStorage, $q, $log, $rootScope, $timeout, Helper) {
     //Select data where time is later than
     function query(data, time) {
-      return ' SELECT ' + data + ' FROM "particulates.' + Helper.id() + '" WHERE time > ' + time + ' ';
+      return ' SELECT ' + data + ' FROM "particulates" WHERE sensor_id = \'' + Helpers.id() + '\' AND time > ' + time + ' ';
     };
     //Group data, so at most 150 points are requested
     function groupTime(time) {
@@ -104,7 +104,7 @@ angular.module('pmreader.services', ["ngStorage"])
             params: {
               pretty: true,
               db: "pm",
-              q: 'select * from "events.' + Helper.id() + '"'
+              q: 'select * from "events" where sensor_id = \'' + Helper.id() + "'"
             }
           });
         }
@@ -118,7 +118,7 @@ angular.module('pmreader.services', ["ngStorage"])
             params: {
               db: "pm"
             },
-            data: 'events.' + Helper.id() + ',sensor_id=' + Helper.id() + ' starts=' + starts + 'i,ends=' + ends + 'i,comment="' + comment + '"',
+            data: 'events,sensor_id=' + Helper.id() + ' starts=' + starts + 'i,ends=' + ends + 'i,comment="' + comment + '"',
             transformRequest: false,
             headers: {
               'Content-Type': undefined
@@ -134,17 +134,15 @@ angular.module('pmreader.services', ["ngStorage"])
             params: {
               pretty: true,
               db: "pm",
-              q: 'SHOW MEASUREMENTS'
+              q: 'SELECT * FROM "particulates" GROUP BY sensor_id LIMIT 1'
             },
             timeout: canceler.promise
           }).then(function(response) {
             var ids = [];
             if (response.data.results[0].series) {
-              var series = response.data.results[0].series[0];
-              for (var i = series.values.length - 1; i >= 0; i--) {
-                var value = series.values[i][0];
-                if (value.startsWith('particulates.')) {
-                  ids.push(value.substring(13));
+              for (s in response.data.results[0].series) {
+                if (s.tags && s.tag.sensor_id) {
+                  ids.push(s.tag.sensor_id);
                 }
               }
             };
