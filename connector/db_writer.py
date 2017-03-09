@@ -77,13 +77,13 @@ desc = {'sensorId': config['sensor_id']}
 
 info = ServiceInfo(
     '_influxdb._tcp.local.',
-    'Pimenk ID {}._influxdb._tcp.local.'.format(config['sensor_id']),
+    'Piment ID {}._influxdb._tcp.local.'.format(config['sensor_id']),
     socket.inet_aton(config['propagated_host']),
     int(config['propagated_port']),
     0,
     0,
     desc,
-    'pimenk-box.local.'
+    'piment-box.local.'
 )
 
 print('Registering mDNS service.')

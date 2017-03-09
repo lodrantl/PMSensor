@@ -1,4 +1,4 @@
-name: pimenk
+name: piment
 version: 0.0.1
 architectures: [armhf]
 summary: Reads data from SDS011 PM sensor and writes it into InfluxDB
@@ -58,12 +58,12 @@ parts:
       - bin/db-writer.wrapper
       - bin/data-exporter.wrapper
       - bin/data-exporterd.wrapper
-      - pimenk/db_writer.py
-      - pimenk/data_exporter.py
-      - pimenk/pm_reader.py
-      - pimenk/pimenk.ini
+      - piment/db_writer.py
+      - piment/data_exporter.py
+      - piment/pm_reader.py
+      - piment/piment.ini
     organize:
-      db_writer.py: pimenk/db_writer.py
-      pm_reader.py: pimenk/pm_reader.py
-      pimenk.ini: pimenk/pimenk.ini
-      data_exporter.py: pimenk/data_exporter.py
+      db_writer.py: piment/db_writer.py
+      pm_reader.py: piment/pm_reader.py
+      piment.ini: piment/piment.ini
+      data_exporter.py: piment/data_exporter.py
