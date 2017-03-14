@@ -21,8 +21,11 @@
       <ion-radio ng-repeat="id in ids" ng-value="id" ng-model="editedBox.id">
         {{id}}
       </ion-radio>
-      <label ng-hide="ids.length" class="item">
+      <label ng-show="state != 'ok'" class="item">
         <span class="input-label">Nepravilen url</span>
+      </label>
+      <label ng-show="state == 'ok' && ids.length == 0" class="item">
+        <span class="input-label">V tej bazi še ni škatlic</span>
       </label>
       <button class="button button-full button-positive" ng-click="createBox(editedBox)">Dodaj</button>
     </div>

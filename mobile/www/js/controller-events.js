@@ -1,4 +1,4 @@
-angular.module('pmreader.controllers').controller('EventsController', function($localStorage, $ionicPlatform, $scope, $ionicPopup, Data, Helper, $filter, $interval, $log, $document) {
+angular.module('pmreader.controllers').controller('EventsController', function($ionicModal, $localStorage, $ionicPlatform, $scope, $ionicPopup, Data, Helper, $filter, $interval, $log, $document) {
   var vm = this;
 
   vm.$storage = $localStorage;
@@ -11,28 +11,28 @@ angular.module('pmreader.controllers').controller('EventsController', function($
   });
 
   vm.sId =
-  vm.refresh = function() {
-    Data.getEvents().then(function(response) {
-      var e = []
-      if (response.data.results[0].series) {
-        var series = response.data.results[0].series[0];
-        for (var i = series.values.length - 1; i >= 0; i--) {
-          var value = series.values[i];
-          var object = {};
-          for (var j = 0; j < value.length; j++) {
-            object[series.columns[j]] = value[j]
+    vm.refresh = function() {
+      Data.getEvents().then(function(response) {
+        var e = []
+        if (response.data.results[0].series) {
+          var series = response.data.results[0].series[0];
+          for (var i = series.values.length - 1; i >= 0; i--) {
+            var value = series.values[i];
+            var object = {};
+            for (var j = 0; j < value.length; j++) {
+              object[series.columns[j]] = value[j]
+            }
+            e.push(object);
           }
-          e.push(object);
         }
-      }
-      vm.events = e;
-    }, function() {
-      vm.events = [];
-    }).finally(function() {
-      // Stop the ion-refresher from spinning
-      $scope.$broadcast('scroll.refreshComplete');
-    });;
-  }
+        vm.events = e;
+      }, function() {
+        vm.events = [];
+      }).finally(function() {
+        // Stop the ion-refresher from spinning
+        $scope.$broadcast('scroll.refreshComplete');
+      });;
+    }
 
 
   var showPopup = function() {
@@ -147,21 +147,48 @@ angular.module('pmreader.controllers').controller('EventsController', function($
     Data.pastChart(event).then(function successCallback(response) {
       if (response.data.results[0].series) {
         Helper.fillChart(vm.chartConfig, response.data.results[0].series[0].values);
+      } else {
+        Helper.emptyChart(vm.chartConfig)
       }
     }, function errorCallback(response) {
-      // called asynchronously if an error occurs
-      // or server returns response with an error status.
+      Helper.emptyChart(vm.chartConfig)
     });
   };
-  vm.hideEvent = function(e) {
-    vm.event = null;
-    vm.hardback();
+  vm.fixDates = function() {
+    if (vm.event) {
+      if (vm.event.dbStarts) {
+        vm.event.starts = vm.event.dbStarts;
+        vm.event.ends = vm.event.dbEnds;
+        delete vm.event.dbStarts;
+        delete vm.event.dbEnds;
+      } else {
+        var insert = (new Date(vm.event.time)).getTime();
+        vm.event.dbStarts = vm.event.starts;
+        vm.event.dbEnds = vm.event.ends;
+        vm.event.starts = insert - vm.event.ends + vm.event.starts - 10000;
+        vm.event.ends = insert;
+      }
+      setPastChart(vm.event);
+    }
   }
+
+  //Create box modal
+  $ionicModal.fromTemplateUrl('templates/event-details.html', {
+    scope: $scope
+  }).then(function(modal) {
+    vm.modal = modal;
+  });
+
+  vm.hideEvent = function() {
+    vm.event = null;
+    vm.modal.hide();
+  };
+
   vm.showEvent = function(event) {
     vm.event = event;
-    vm.hardback = $ionicPlatform.registerBackButtonAction(
-      vm.hideEvent, 101
-    );
+    vm.fixed = false;
     setPastChart(event);
-  }
+    vm.modal.show();
+  };
+
 });

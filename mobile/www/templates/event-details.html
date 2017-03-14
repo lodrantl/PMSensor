@@ -1,7 +1,10 @@
-<ion-content class="padding-no-top">
-  <a class="button float-right icon-left ion-chevron-left button-clear button-dark" ng-click="ctrl.hideEvent()">Nazaj</a>
-  <h2>{{ctrl.event.comment}}</h2>
+<ion-modal-view>
+  <ion-content class="padding-no-top">
+    <a class="button float-right icon-left ion-chevron-left button-clear button-dark" ng-click="ctrl.hideEvent()">Nazaj</a>
+    <h2>{{ctrl.event.comment}}</h2>
 
-  <p>Od <b>{{ctrl.event.starts | date : "d/m/yyyy HH:mm:ss"}}</b> do <b>{{ctrl.event.ends | date : "d/m/yyyy HH:mm:ss"}}</b></p>
-  <highchart id="chart2" config="ctrl.chartConfig"></highchart>
-</ion-content>
+    <p>Od <b>{{ctrl.event.starts | date : "dd/MM/yyyy HH:mm:ss"}}</b> do <b>{{ctrl.event.ends | date : "dd/MM/yyyy HH:mm:ss"}}</b></p>
+    <highchart id="chart2" config="ctrl.chartConfig"></highchart>
+    <ion-checkbox ng-model="ctrl.fixed" ng-change="ctrl.fixDates()">Popravi datume</ion-checkbox>
+  </ion-content>
+</ion-modal-view>
