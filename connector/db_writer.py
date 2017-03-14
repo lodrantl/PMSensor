@@ -50,7 +50,7 @@ myclient = InfluxDBClient(
 
 myclient.create_database('pm')
 myclient.create_retention_policy('pm_policy', 'INF', 3, default=True)
-
+myclient.create_retention_policy('event_policy', 'INF', 3, default=False)
 
 class PMSeriesHelper(SeriesHelper):
     class Meta:
