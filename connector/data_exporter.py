@@ -80,7 +80,7 @@ def migrate_pm():
 
     while result_len == 4500:
         result = source.query(
-            'SELECT * FROM "particulates" WHERE time > {} AND sensor_id = \'{}\' LIMIT 4500 OFFSET {}'
+            'SELECT * FROM "pm_policy"."particulates" WHERE time > {} AND sensor_id = \'{}\' LIMIT 4500 OFFSET {}'
             .format(last, config['sensor_id'], i * 4500)
         )
 
@@ -121,7 +121,7 @@ def migrate_pm():
 
 def migrate_events():
     result = source.query(
-        'SELECT * FROM "events" WHERE sensor_id = \'{}\''
+        'SELECT * FROM "event_policy"."events" WHERE sensor_id = \'{}\''
         .format(config['sensor_id'])
     )
 

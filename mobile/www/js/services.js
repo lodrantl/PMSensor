@@ -26,18 +26,15 @@ angular.module('pmreader.services', ["ngStorage"])
           params: {
             pretty: true,
             db: "pm",
-            q: query('*', 'now() - 5m') + 'ORDER BY time DESC LIMIT 1;' +
+            q: query('pm_25,pm_10', 'now() - 5m') + 'ORDER BY time DESC LIMIT 1;' +
               query('MEAN(pm_10), MEAN(pm_25)', 'now() - ' + time + $localStorage.timeUnit) + groupTime(time)
           },
           paramSerializer: semicolonSerializer
         }).then(function successCallback(response) {
           if (response.data.results[0].series) {
-            var r = response.data.results[0].series[0].values[0];
-            $rootScope.current_10 = r[1];
-            $rootScope.current_25 = r[2];
+            $rootScope.current = response.data.results[0].series[0].values[0];
           } else {
-            $rootScope.current_10 = null;
-            $rootScope.current_25 = null;
+            $rootScope.current = [null,null,null]
           }
           if (response.data.results[1].series) {
             var data = response.data.results[1].series[0].values;
@@ -46,15 +43,13 @@ angular.module('pmreader.services', ["ngStorage"])
             Helper.emptyChart($rootScope.chartConfig);
           }
         }, function errorCallback(response) {
-          $rootScope.current_10 = null;
-          $rootScope.current_25 = null;
+          $rootScope.current = [null,null,null]
           Helper.emptyChart($rootScope.chartConfig);
         }).finally(function(response) {
           $timeout(current, 1000);
         });;
       } else {
-        $rootScope.current_10 = null;
-        $rootScope.current_25 = null;
+        $rootScope.current = [null,null,null]
         Helper.emptyChart($rootScope.chartConfig);
         $timeout(current, 1000);
       }
