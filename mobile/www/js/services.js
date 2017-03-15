@@ -1,8 +1,8 @@
 angular.module('pmreader.services', ["ngStorage"])
-  .factory('Data', function($http, $localStorage, $q, $log, $rootScope, $timeout, Helper) {
+  .factory('Data', function($http, $localStorage, $q, $log, $rootScope, $timeout, Helper, $httpParamSerializer) {
     //Select data where time is later than
     function query(data, time) {
-      return ' SELECT ' + data + ' FROM "particulates" WHERE sensor_id = \'' + Helper.id() + '\' AND time > ' + time + ' ';
+      return ' SELECT ' + data + ' FROM pm_policy.particulates WHERE sensor_id = \'' + Helper.id() + '\' AND time > ' + time + ' ';
     };
     //Group data, so at most 150 points are requested
     function groupTime(time, unit) {
@@ -13,17 +13,23 @@ angular.module('pmreader.services', ["ngStorage"])
       return ' GROUP BY *, time(' + Math.ceil(g) + unit + ') ';
     };
 
+    function semicolonSerializer(params) {
+      return $httpParamSerializer(params).replace(/;/g, "%3B");
+    }
     //Requests latest value and writes it into rootScope
-    function currentValue() {
+    function current() {
       if (Helper.boxSet()) {
+        var time = $localStorage.time;
         $http({
           method: 'GET',
           url: Helper.url() + "/query",
           params: {
             pretty: true,
             db: "pm",
-            q: query('*', 'now() - 5m') + 'ORDER BY time DESC LIMIT 1'
-          }
+            q: query('*', 'now() - 5m') + 'ORDER BY time DESC LIMIT 1;' +
+              query('MEAN(pm_10), MEAN(pm_25)', 'now() - ' + time + $localStorage.timeUnit) + groupTime(time)
+          },
+          paramSerializer: semicolonSerializer
         }).then(function successCallback(response) {
           if (response.data.results[0].series) {
             var r = response.data.results[0].series[0].values[0];
@@ -33,51 +39,28 @@ angular.module('pmreader.services', ["ngStorage"])
             $rootScope.current_10 = null;
             $rootScope.current_25 = null;
           }
-        }, function errorCallback(response) {
-          $rootScope.current_10 = null;
-          $rootScope.current_25 = null;
-        }).finally(function(response) {
-          $timeout(currentValue, 1000);
-        });;
-      } else {
-        $rootScope.current_10 = null;
-        $rootScope.current_25 = null;
-        $timeout(currentValue, 1000);
-      }
-    };
-
-    //Requests latest graph and writes it into rootScope
-    function currentChart() {
-      if (Helper.boxSet()) {
-        var time = $localStorage.time;
-        $http({
-          method: 'GET',
-          url: Helper.url() + "/query",
-          params: {
-            pretty: true,
-            db: "pm",
-            q: query('MEAN(pm_10), MEAN(pm_25)', 'now() - ' + time + $localStorage.timeUnit) + groupTime(time)
-          }
-        }).then(function successCallback(response) {
-          if (response.data.results[0].series) {
-            var data = response.data.results[0].series[0].values;
+          if (response.data.results[1].series) {
+            var data = response.data.results[1].series[0].values;
             Helper.fillChart($rootScope.chartConfig, data);
           } else {
             Helper.emptyChart($rootScope.chartConfig);
           }
         }, function errorCallback(response) {
+          $rootScope.current_10 = null;
+          $rootScope.current_25 = null;
           Helper.emptyChart($rootScope.chartConfig);
         }).finally(function(response) {
-          $timeout(currentChart, 1000);
-        });
+          $timeout(current, 1000);
+        });;
       } else {
+        $rootScope.current_10 = null;
+        $rootScope.current_25 = null;
         Helper.emptyChart($rootScope.chartConfig);
-        $timeout(currentChart, 1000);
+        $timeout(current, 1000);
       }
-    }
+    };
 
-    currentValue();
-    currentChart();
+    current();
 
 
     return {
@@ -107,7 +90,7 @@ angular.module('pmreader.services', ["ngStorage"])
             params: {
               pretty: true,
               db: "pm",
-              q: 'select starts,ends,comment from "events" where sensor_id = \'' + Helper.id() + "'"
+              q: 'select starts,ends,comment,time from event_policy.events where sensor_id = \'' + Helper.id() + "'"
             }
           });
         }
@@ -119,7 +102,8 @@ angular.module('pmreader.services', ["ngStorage"])
             method: 'POST',
             url: Helper.url() + "/write",
             params: {
-              db: "pm"
+              db: "pm",
+              rp: 'event_policy'
             },
             data: 'events,sensor_id=' + Helper.id() + ' starts=' + starts + 'i,ends=' + ends + 'i,comment="' + comment + '"',
             transformRequest: false,
@@ -131,28 +115,28 @@ angular.module('pmreader.services', ["ngStorage"])
         return $q.reject("No url");
       },
       getSensorIds: function(url, canceler) {
-          return $http({
-            method: 'GET',
-            url: url.replace(/\/$/, "") + "/query",
-            params: {
-              pretty: true,
-              db: "pm",
-              q: 'SELECT * FROM "particulates" GROUP BY sensor_id LIMIT 1'
-            },
-            timeout: canceler.promise
-          }).then(function(response) {
-            var ids = [];
-            var series = response.data.results[0].series;
+        return $http({
+          method: 'GET',
+          url: url.replace(/\/$/, "") + "/query",
+          params: {
+            pretty: true,
+            db: "pm",
+            q: 'SELECT * FROM pm_policy.particulates GROUP BY sensor_id LIMIT 1'
+          },
+          timeout: canceler.promise
+        }).then(function(response) {
+          var ids = [];
+          var series = response.data.results[0].series;
 
-            if (series) {
-              for (var i = 0; i < series.length; i++) {
-                if (series[i].tags && series[i].tags.sensor_id) {
-                  ids.push(series[i].tags.sensor_id);
-                }
+          if (series) {
+            for (var i = 0; i < series.length; i++) {
+              if (series[i].tags && series[i].tags.sensor_id) {
+                ids.push(series[i].tags.sensor_id);
               }
-            };
-            return ids;
-          });
+            }
+          };
+          return ids;
+        });
       }
     };
   })
@@ -169,14 +153,14 @@ angular.module('pmreader.services', ["ngStorage"])
         if ($localStorage.currentBox == null) {
           return null;
         }
-        return  $localStorage.currentBox.split(":::")[1].replace(/\/$/, "")
+        return $localStorage.currentBox.split(":::")[1].replace(/\/$/, "")
 
       },
       id: function() {
         if ($localStorage.currentBox == null) {
           return null;
         }
-        return  $localStorage.currentBox.split(":::")[0]
+        return $localStorage.currentBox.split(":::")[0]
       },
       fillChart: function(chartConfig, currentChart) {
         if (currentChart && chartConfig && chartConfig.series) {

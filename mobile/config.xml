@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="si.artes.piment" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="si.artes.piment" version="1.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>PiMent</name>
   <description>&#xD;
         Visualize particulate matter data collected by PiMent Raspberry PI service.&#xD;
     </description>
-  <author email="luka.lodrant@gmail.com" href="https://github.com/lodrantl">&#xD;
+  <author email="luka.null@gmail.com" href="https://github.com/lodrantl">&#xD;
       Luka Lodrant&#xD;
     </author>
   <content src="index.html"/>

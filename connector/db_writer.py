@@ -50,7 +50,7 @@ myclient = InfluxDBClient(
 
 myclient.create_database('pm')
 myclient.create_retention_policy('pm_policy', 'INF', 3, default=True)
-
+myclient.create_retention_policy('event_policy', 'INF', 3, default=False)
 
 class PMSeriesHelper(SeriesHelper):
     class Meta:
@@ -100,4 +100,3 @@ def on_kill(e, t):
 
 signal.signal(signal.SIGINT, on_kill)
 signal.signal(signal.SIGTERM, on_kill)
-
