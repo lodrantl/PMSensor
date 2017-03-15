@@ -4,15 +4,18 @@
     <div>
       <h4>Trenutne vrednosti delcev:</h4>
       <ion-list>
+        <ion-item>
+          Čas meritve: {{current[0] | date : "dd/MM/yyyy HH:mm:ss"}}
+        </ion-item>
         <ion-item class="pm10">
-          PM 10: {{current_10}} &#181;g/m<sup>3</sup>
+          PM 10: {{current[2]}} &#181;g/m<sup>3</sup>
         </ion-item>
         <ion-item class="pm25">
-          PM 2.5: {{current_25}} &#181;g/m<sup>3</sup>
+          PM 2.5: {{current[1]}} &#181;g/m<sup>3</sup>
         </ion-item>
       </ion-list>
     </div>
-    <h4 ng-show="current_10 == null || current_25 == null">Napaka pri zajemu podatkov.</h4>
+    <h4 ng-show="current[1] == null || current[2] == null">Podatki niso na voljo.</h4>
     <highchart id="chart1" config="chartConfig"></highchart>
   </ion-content>
 </ion-view>
