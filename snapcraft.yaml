@@ -56,8 +56,8 @@ parts:
     source: connector/
     prime:
       - bin/db-writer.wrapper
-      - bin/data-exporter.wrapper
-      - bin/data-exporterd.wrapper
+      - bin/data-export.wrapper
+      - bin/data-exportd.wrapper
       - piment/db_writer.py
       - piment/data_exporter.py
       - piment/pm_reader.py
