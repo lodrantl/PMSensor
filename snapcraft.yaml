@@ -1,5 +1,5 @@
 name: piment
-version: 0.0.2
+version: 0.0.3
 architectures: [armhf]
 summary: Reads data from SDS011 PM sensor and writes it into InfluxDB
 description: |
