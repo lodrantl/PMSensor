@@ -1,0 +1,1540 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   preserveAspectRatio="xMidYMid meet"
+   viewBox="0 0 512 512"
+   width="512"
+   height="512"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="new-icon.svg"
+   inkscape:export-filename="C:\Users\Luka\workspaces\python-workspace\PMSensor\mobile\resources\icon.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <metadata
+     id="metadata461">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview459"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="1.0429825"
+     inkscape:cx="378.58821"
+     inkscape:cy="353.12396"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <defs
+     id="defs4">
+    <path
+       d="m 0,-0.42 512,0 0,512.32 -512,0 0,-512.32 z"
+       id="ciar46de"
+       inkscape:connector-curvature="0" />
+    <path
+       d="M 317.6,491.75 0,491.91 0.64,292.71 371.28,0 317.6,491.75 Z"
+       id="d3L8U4ldPi"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 259.64,258.55 c 0,-2.17 1.61,-3.93 3.6,-3.93 1.99,0 3.6,1.76 3.6,3.93 0,2.18 -1.61,3.94 -3.6,3.94 -1.99,0 -3.6,-1.76 -3.6,-3.94 z"
+       id="c2GTztcWWj"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 180.44,248.37 c 0,3.31 -2.69,6 -6,6 -3.31,0 -6,-2.69 -6,-6 0,-3.32 2.69,-6 6,-6 3.31,0 6,2.68 6,6 z"
+       id="cody4eLsz"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 237.44,473.75 c 0,5.08 -4.12,9.2 -9.2,9.2 -5.08,0 -9.2,-4.12 -9.2,-9.2 0,-5.07 4.12,-9.2 9.2,-9.2 5.08,0 9.2,4.13 9.2,9.2 z"
+       id="a2gGksxOYT"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 213.84,341.35 c 0,5.08 -4.12,9.2 -9.2,9.2 -5.08,0 -9.2,-4.12 -9.2,-9.2 0,-5.07 4.12,-9.2 9.2,-9.2 5.08,0 9.2,4.13 9.2,9.2 z"
+       id="aPoTAbqO8"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 235.84,145.35 c 0,5.08 -4.12,9.2 -9.2,9.2 -5.08,0 -9.2,-4.12 -9.2,-9.2 0,-5.07 4.12,-9.2 9.2,-9.2 5.08,0 9.2,4.13 9.2,9.2 z"
+       id="a2xyMPJUlE"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 62.64,284.55 c 0,5.08 -4.12,9.2 -9.2,9.2 -5.08,0 -9.2,-4.12 -9.2,-9.2 0,-5.07 4.12,-9.2 9.2,-9.2 5.08,0 9.2,4.13 9.2,9.2 z"
+       id="a2KbMbiPMx"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 160.44,434.75 c 0,5.08 -4.12,9.2 -9.2,9.2 -5.08,0 -9.2,-4.12 -9.2,-9.2 0,-5.07 4.12,-9.2 9.2,-9.2 5.08,0 9.2,4.13 9.2,9.2 z"
+       id="a2cmsdal6D"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 111.04,442.75 c 0,2.54 -2.06,4.6 -4.6,4.6 -2.54,0 -4.6,-2.06 -4.6,-4.6 0,-2.53 2.06,-4.6 4.6,-4.6 2.54,0 4.6,2.07 4.6,4.6 z"
+       id="e16Xljp6V"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 144.64,385.75 c 0,5.08 -4.12,9.2 -9.2,9.2 -5.08,0 -9.2,-4.12 -9.2,-9.2 0,-5.07 4.12,-9.2 9.2,-9.2 5.08,0 9.2,4.13 9.2,9.2 z"
+       id="a5ygRgDF8W"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 191.44,175.75 c 0,3.32 -2.69,6 -6,6 -3.31,0 -6,-2.68 -6,-6 0,-3.31 2.69,-6 6,-6 3.31,0 6,2.69 6,6 z"
+       id="bAT1YGuoo"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 63.04,398.55 c 0,3.32 -2.69,6 -6,6 -3.31,0 -6,-2.68 -6,-6 0,-3.31 2.69,-6 6,-6 3.31,0 6,2.69 6,6 z"
+       id="c1QpGVvBKt"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 118.64,247.75 c 0,3.32 -2.69,6 -6,6 -3.31,0 -6,-2.68 -6,-6 0,-3.31 2.69,-6 6,-6 3.31,0 6,2.69 6,6 z"
+       id="b9SHjVEn2"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 293.44,376.15 c 0,3.32 -2.69,6 -6,6 -3.31,0 -6,-2.68 -6,-6 0,-3.31 2.69,-6 6,-6 3.31,0 6,2.69 6,6 z"
+       id="b1nm1xeM9D"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 297.84,95.75 c 0,3.32 -2.69,6 -6,6 -3.31,0 -6,-2.68 -6,-6 0,-3.31 2.69,-6 6,-6 3.31,0 6,2.69 6,6 z"
+       id="a8b9gEpUyG"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 272.64,151.35 c 0,3.32 -2.69,6 -6,6 -3.31,0 -6,-2.68 -6,-6 0,-3.31 2.69,-6 6,-6 3.31,0 6,2.69 6,6 z"
+       id="a1hiSlRpo"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 193.04,282.95 c 0,5.08 -4.12,9.2 -9.2,9.2 -5.08,0 -9.2,-4.12 -9.2,-9.2 0,-5.07 4.12,-9.2 9.2,-9.2 5.08,0 9.2,4.13 9.2,9.2 z"
+       id="b1YdXzbFUA"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 296.64,426.55 c 0,5.08 -4.12,9.2 -9.2,9.2 -5.08,0 -9.2,-4.12 -9.2,-9.2 0,-5.07 4.12,-9.2 9.2,-9.2 5.08,0 9.2,4.13 9.2,9.2 z"
+       id="f1AH4b9SjP"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 105.04,346.95 c 0,5.08 -4.12,9.2 -9.2,9.2 -5.08,0 -9.2,-4.12 -9.2,-9.2 0,-5.07 4.12,-9.2 9.2,-9.2 5.08,0 9.2,4.13 9.2,9.2 z"
+       id="e8iKoU9BX6"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 270.24,320.95 c 0,5.08 -4.12,9.2 -9.2,9.2 -5.08,0 -9.2,-4.12 -9.2,-9.2 0,-5.07 4.12,-9.2 9.2,-9.2 5.08,0 9.2,4.13 9.2,9.2 z"
+       id="bqry8XoTb"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 236.24,206.95 c 0,5.08 -4.12,9.2 -9.2,9.2 -5.08,0 -9.2,-4.12 -9.2,-9.2 0,-5.07 4.12,-9.2 9.2,-9.2 5.08,0 9.2,4.13 9.2,9.2 z"
+       id="a5g9v2LeS"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 338.24,161.29 c 0,3.32 -2.69,6 -6,6 -3.31,0 -6,-2.68 -6,-6 0,-3.31 2.69,-6 6,-6 3.31,0 6,2.69 6,6 z"
+       id="c2nEi1m68Q"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 309.44,232.15 c 0,3.32 -2.69,6 -6,6 -3.31,0 -6,-2.68 -6,-6 0,-3.31 2.69,-6 6,-6 3.31,0 6,2.69 6,6 z"
+       id="bfypQaRpt"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 325.44,64.55 c 0,3.32 -2.69,6 -6,6 -3.31,0 -6,-2.68 -6,-6 0,-3.31 2.69,-6 6,-6 3.31,0 6,2.69 6,6 z"
+       id="a5O0CJr5Ne"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 188.24,459.75 c 0,3.32 -2.69,6 -6,6 -3.31,0 -6,-2.68 -6,-6 0,-3.31 2.69,-6 6,-6 3.31,0 6,2.69 6,6 z"
+       id="ag4DYpFyS"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 288.64,194.55 c 0,3.32 -2.69,6 -6,6 -3.31,0 -6,-2.68 -6,-6 0,-3.31 2.69,-6 6,-6 3.31,0 6,2.69 6,6 z"
+       id="b1So0RgLQl"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 311.44,295.75 c 0,3.32 -2.69,6 -6,6 -3.31,0 -6,-2.68 -6,-6 0,-3.31 2.69,-6 6,-6 3.31,0 6,2.69 6,6 z"
+       id="a1npuT6L8X"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 329.44,272.15 c 0,3.32 -2.69,6 -6,6 -3.31,0 -6,-2.68 -6,-6 0,-3.31 2.69,-6 6,-6 3.31,0 6,2.69 6,6 z"
+       id="b2CmvdWh7b"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 51.44,462.15 c 0,3.32 -2.69,6 -6,6 -3.31,0 -6,-2.68 -6,-6 0,-3.31 2.69,-6 6,-6 3.31,0 6,2.69 6,6 z"
+       id="a5RQy2I1vg"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 363.44,32.95 c 0,3.32 -2.69,6 -6,6 -3.31,0 -6,-2.68 -6,-6 0,-3.31 2.69,-6 6,-6 3.31,0 6,2.69 6,6 z"
+       id="ieNx7h93p"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 146.64,339.95 c 0,2.54 -2.06,4.6 -4.6,4.6 -2.54,0 -4.6,-2.06 -4.6,-4.6 0,-2.53 2.06,-4.6 4.6,-4.6 2.54,0 4.6,2.07 4.6,4.6 z"
+       id="a9Ot52s6Y1"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 331.04,124.35 c 0,2.54 -2.06,4.6 -4.6,4.6 -2.54,0 -4.6,-2.06 -4.6,-4.6 0,-2.53 2.06,-4.6 4.6,-4.6 2.54,0 4.6,2.07 4.6,4.6 z"
+       id="emu1iSYwp"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 91.64,292.75 c 0,2.54 -2.06,4.6 -4.6,4.6 -2.54,0 -4.6,-2.06 -4.6,-4.6 0,-2.53 2.06,-4.6 4.6,-4.6 2.54,0 4.6,2.07 4.6,4.6 z"
+       id="bz2FZH3QK"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 174.24,317.95 c 0,2.54 -2.06,4.6 -4.6,4.6 -2.54,0 -4.6,-2.06 -4.6,-4.6 0,-2.53 2.06,-4.6 4.6,-4.6 2.54,0 4.6,2.07 4.6,4.6 z"
+       id="cdL1LGxNS"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 186.64,379.95 c 0,2.54 -2.06,4.6 -4.6,4.6 -2.54,0 -4.6,-2.06 -4.6,-4.6 0,-2.53 2.06,-4.6 4.6,-4.6 2.54,0 4.6,2.07 4.6,4.6 z"
+       id="c1e5ADa2Tm"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 223.04,369.95 c 0,2.54 -2.06,4.6 -4.6,4.6 -2.54,0 -4.6,-2.06 -4.6,-4.6 0,-2.53 2.06,-4.6 4.6,-4.6 2.54,0 4.6,2.07 4.6,4.6 z"
+       id="a1Yn2vWMNz"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 61.84,327.95 c 0,2.54 -2.06,4.6 -4.6,4.6 -2.54,0 -4.6,-2.06 -4.6,-4.6 0,-2.53 2.06,-4.6 4.6,-4.6 2.54,0 4.6,2.07 4.6,4.6 z"
+       id="b1PConS9k9"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 215.84,269.95 c 0,2.54 -2.06,4.6 -4.6,4.6 -2.54,0 -4.6,-2.06 -4.6,-4.6 0,-2.53 2.06,-4.6 4.6,-4.6 2.54,0 4.6,2.07 4.6,4.6 z"
+       id="hhObUK4jp"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 226.64,419.95 c 0,2.54 -2.06,4.6 -4.6,4.6 -2.54,0 -4.6,-2.06 -4.6,-4.6 0,-2.53 2.06,-4.6 4.6,-4.6 2.54,0 4.6,2.07 4.6,4.6 z"
+       id="beZSdJc6r"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 251.04,394.75 c 0,2.54 -2.06,4.6 -4.6,4.6 -2.54,0 -4.6,-2.06 -4.6,-4.6 0,-2.53 2.06,-4.6 4.6,-4.6 2.54,0 4.6,2.07 4.6,4.6 z"
+       id="d7JjCCttu"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 222.8,303.34 -2.5,-0.85 -0.67,2.56 2.5,0.51 -0.66,2.57 2,-1.71 2,-1.71 0.16,-2.57 -2.5,-0.68 -2.16,1.54"
+       id="a11qEkAgR7"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 348.29,87.23 0.07,1.46 1.13,-0.29 0.9,0.98 1.05,0.68 0.52,-1.37 0.9,-0.97 0.97,-0.78 -0.07,-1.46 -1.13,-0.39 -1.12,-0.3 -0.3,-1.46 -0.6,-1.27 -1.12,0.59 -0.08,1.46 -0.82,1.07 -1.12,-0.09 -0.3,1.46 0.89,0.97"
+       id="b2cMJCg6MU"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 327.29,91.23 0.07,1.46 1.13,-0.29 0.9,0.98 1.05,0.68 0.52,-1.37 0.9,-0.97 0.97,-0.78 -0.07,-1.46 -1.13,-0.39 -1.12,-0.3 -0.3,-1.46 -0.6,-1.27 -1.12,0.59 -0.08,1.46 -0.82,1.07 -1.12,-0.09 -0.3,1.46 0.89,0.97"
+       id="dcCnbhzGG"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 125.29,311.23 0.07,1.46 1.13,-0.29 0.9,0.98 1.05,0.68 0.52,-1.37 0.9,-0.97 0.97,-0.78 -0.07,-1.46 -1.13,-0.39 -1.12,-0.3 -0.3,-1.46 -0.6,-1.27 -1.12,0.59 -0.08,1.46 -0.82,1.07 -1.12,-0.09 -0.3,1.46 0.89,0.97"
+       id="htWKZWjty"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 175.29,351.72 0.07,1.47 1.13,-0.29 0.9,0.97 1.05,0.68 0.52,-1.36 0.9,-0.98 0.97,-0.78 -0.07,-1.46 -1.13,-0.39 -1.12,-0.29 -0.3,-1.47 -0.6,-1.27 -1.12,0.59 -0.08,1.46 -0.82,1.08 -1.12,-0.1 -0.3,1.46 0.89,0.98"
+       id="b2CV7xK8sc"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 64.29,370.23 0.07,1.46 1.13,-0.29 0.9,0.98 1.05,0.68 0.52,-1.37 0.9,-0.97 0.97,-0.78 -0.07,-1.46 -1.13,-0.39 -1.12,-0.3 -0.3,-1.46 -0.6,-1.27 -1.12,0.59 -0.08,1.46 -0.82,1.07 -1.12,-0.09 -0.3,1.46 0.89,0.97"
+       id="d6BmYk8ptg"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 21.96,334.23 0.07,1.46 1.12,-0.29 0.9,0.98 1.05,0.68 0.53,-1.37 0.9,-0.97 0.97,-0.78 -0.08,-1.46 -1.12,-0.39 -1.12,-0.3 -0.3,-1.46 -0.6,-1.27 -1.13,0.59 -0.07,1.46 -0.82,1.07 -1.13,-0.09 -0.3,1.46 0.9,0.97"
+       id="a6X5Es6EW"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 322.79,208.23 0.07,1.46 1.13,-0.29 0.9,0.98 1.05,0.68 0.52,-1.37 0.9,-0.97 0.97,-0.78 -0.07,-1.46 -1.13,-0.39 -1.12,-0.3 -0.3,-1.46 -0.6,-1.27 -1.12,0.59 -0.08,1.46 -0.82,1.07 -1.12,-0.09 -0.3,1.46 0.89,0.97"
+       id="a7TmgNWqo"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 259.29,115.23 0.07,1.46 1.13,-0.29 0.9,0.98 1.05,0.68 0.52,-1.37 0.9,-0.97 0.97,-0.78 -0.07,-1.46 -1.13,-0.39 -1.12,-0.3 -0.3,-1.46 -0.6,-1.27 -1.12,0.59 -0.08,1.46 -0.82,1.07 -1.12,-0.09 -0.3,1.46 0.89,0.97"
+       id="a21JjlLWT"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 145.3,241.84 -2.5,-0.85 -0.67,2.56 2.5,0.51 -0.66,2.57 2,-1.71 2,-1.71 0.16,-2.57 -2.5,-0.68 -2.16,1.54"
+       id="d8mJ60Yus"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 203.8,236.34 -2.5,-0.85 -0.67,2.56 2.5,0.51 -0.66,2.57 2,-1.71 2,-1.71 0.16,-2.57 -2.5,-0.68 -2.16,1.54"
+       id="a1VearB3"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 290.3,127.84 -2.5,-0.85 -0.67,2.56 2.5,0.51 -0.66,2.57 2,-1.71 2,-1.71 0.16,-2.57 -2.5,-0.68 -2.16,1.54"
+       id="b15GgPnA21"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 339.21,50.84 -2.5,-0.85 -0.67,2.56 2.5,0.51 -0.67,2.57 2,-1.71 2,-1.71 0.17,-2.57 -2.5,-0.68 -2.17,1.54"
+       id="fwtPK6IeE"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 122.3,217.34 -2.5,-0.85 -0.67,2.56 2.5,0.51 -0.66,2.57 2,-1.71 2,-1.71 0.16,-2.57 -2.5,-0.68 -2.16,1.54"
+       id="fR1zDOoa3"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 160.8,210.34 -2.5,-0.85 -0.67,2.56 2.5,0.51 -0.66,2.57 2,-1.71 2,-1.71 0.16,-2.57 -2.5,-0.68 -2.16,1.54"
+       id="n1ezLTzMnh"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 302.3,159.84 -2.5,-0.85 -0.67,2.56 2.5,0.51 -0.66,2.57 2,-1.71 2,-1.71 0.16,-2.57 -2.5,-0.68 -2.16,1.54"
+       id="e1jiRpH0OX"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 186.8,210.34 -2.5,-0.85 -0.67,2.56 2.5,0.51 -0.66,2.57 2,-1.71 2,-1.71 0.16,-2.57 -2.5,-0.68 -2.16,1.54"
+       id="b1gy5Uajc"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 335.5,69.22 0,5 5,1.33 1.67,-5 -1.34,-5 -3.66,3.67 -4.67,-2.33"
+       id="f4nEIz73"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 343.5,109.06 0,5 5,1.33 1.67,-5 -1.34,-5 -3.66,3.67 -4.67,-2.33"
+       id="a4UkH36Z0S"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 309,339.06 0,5 5,1.33 1.67,-5 -1.34,-5 -3.66,3.67 -4.67,-2.33"
+       id="aQTUQECV2"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 247.5,177.06 0,5 5,1.33 1.67,-5 -1.34,-5 -3.66,3.67 -4.67,-2.33"
+       id="alMnZHYlt"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 139,272.56 0,5 5,1.33 1.67,-5 -1.34,-5 -3.66,3.67 -4.67,-2.33"
+       id="at3V9RVsM"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 180.5,169.06 0,5 5,1.33 1.67,-5 -1.34,-5 -3.66,3.67 -4.67,-2.33"
+       id="f1y3KAZ3M1"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 233.5,240.03 0,5 5,1.34 1.67,-5 -1.34,-5.01 -3.66,3.67 -4.67,-2.33"
+       id="a28Yrsw0Q"
+       inkscape:connector-curvature="0" />
+    <path
+       d="M 216.47,116 198.5,89.85 184.44,103.32 162.36,55.82 130.23,134.46 103.13,11.9 66.99,176.68 57.96,60.11 7.56,166.7"
+       id="d1YIwcDzLj"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 506.41,101.36 -24.75,0 -24.74,210 -24.75,-152.59 -22.1,74.03 -22.98,-101.98 -14.14,46.84 -15.91,-2.03"
+       id="c4dTX16PtE"
+       inkscape:connector-curvature="0" />
+    <path
+       d="M 83.02,231.09 68.58,210.87 31.46,242.64 19.09,201.25 3.21,229.16"
+       id="d1lonf0a7c"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 505.58,392.87 -19.88,6.78 -15.15,-47.45 -28.4,34.86 -18.94,-31.96 -37.87,95.89 -27.45,-80.39 -10.41,29.05 -13.26,-5.81"
+       id="a64pl9jTSe"
+       inkscape:connector-curvature="0" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4793">
+      <rect
+         style="opacity:0.43500001;fill:#000000;stroke:none;stroke-width:2.02165008;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:38.5718956;stroke-opacity:1"
+         id="rect4795"
+         width="512"
+         height="512.32001"
+         x="47.457626"
+         y="34.934231"
+         ry="16.880045" />
+    </clipPath>
+  </defs>
+  <g
+     id="g4589"
+     transform="matrix(1,0,0,0.99937539,-47.457627,-34.91241)"
+     clip-path="url(#clipPath4793)">
+    <g
+       transform="translate(47.457627,35.35423)"
+       style="visibility:inherit"
+       id="g75"
+       visibility="inherit">
+      <g
+         style="visibility:inherit"
+         id="g77"
+         visibility="inherit">
+        <g
+           style="visibility:inherit"
+           id="g79"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#cecece;fill-opacity:1"
+             id="use81"
+             xlink:href="#ciar46de" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g83"
+           vector-effect="non-scaling-stroke"
+           transform="scale(1,1.0398223)"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#e54747;fill-opacity:0.68999999"
+             id="use85"
+             xlink:href="#d3L8U4ldPi" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g87"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:1"
+             id="use89"
+             xlink:href="#c2GTztcWWj" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g91"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:1"
+             id="use93"
+             xlink:href="#cody4eLsz" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g95"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:1"
+             id="use97"
+             xlink:href="#a2gGksxOYT" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g99"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:1"
+             id="use101"
+             xlink:href="#aPoTAbqO8" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g103"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:1"
+             id="use105"
+             xlink:href="#a2xyMPJUlE" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g107"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:1"
+             id="use109"
+             xlink:href="#a2KbMbiPMx" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g111"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:1"
+             id="use113"
+             xlink:href="#a2cmsdal6D" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g115"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.18999999"
+             id="use117"
+             xlink:href="#e16Xljp6V" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g119"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.47000002"
+             id="use121"
+             xlink:href="#a5ygRgDF8W" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g123"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:1"
+             id="use125"
+             xlink:href="#bAT1YGuoo" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g127"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:1"
+             id="use129"
+             xlink:href="#c1QpGVvBKt" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g131"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:1"
+             id="use133"
+             xlink:href="#b9SHjVEn2" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g135"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:1"
+             id="use137"
+             xlink:href="#b1nm1xeM9D" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g139"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:1"
+             id="use141"
+             xlink:href="#a8b9gEpUyG" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g143"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.38999999"
+             id="use145"
+             xlink:href="#a1hiSlRpo" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g147"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.47000002"
+             id="use149"
+             xlink:href="#b1YdXzbFUA" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g151"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.47000002"
+             id="use153"
+             xlink:href="#f1AH4b9SjP" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g155"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.47000002"
+             id="use157"
+             xlink:href="#e8iKoU9BX6" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g159"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.47000002"
+             id="use161"
+             xlink:href="#bqry8XoTb" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g163"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.47000002"
+             id="use165"
+             xlink:href="#a5g9v2LeS" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g167"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.38999999"
+             id="use169"
+             xlink:href="#c2nEi1m68Q" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g171"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.38999999"
+             id="use173"
+             xlink:href="#bfypQaRpt" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g175"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.38999999"
+             id="use177"
+             xlink:href="#a5O0CJr5Ne" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g179"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.38999999"
+             id="use181"
+             xlink:href="#ag4DYpFyS" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g183"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.38999999"
+             id="use185"
+             xlink:href="#b1So0RgLQl" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g187"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.38999999"
+             id="use189"
+             xlink:href="#a1npuT6L8X" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g191"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.38999999"
+             id="use193"
+             xlink:href="#b2CmvdWh7b" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g195"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.38999999"
+             id="use197"
+             xlink:href="#a5RQy2I1vg" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g199"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.38999999"
+             id="use201"
+             xlink:href="#ieNx7h93p" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g203"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.18999999"
+             id="use205"
+             xlink:href="#a9Ot52s6Y1" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g207"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.18999999"
+             id="use209"
+             xlink:href="#emu1iSYwp" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g211"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.18999999"
+             id="use213"
+             xlink:href="#bz2FZH3QK" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g215"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.18999999"
+             id="use217"
+             xlink:href="#cdL1LGxNS" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g219"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.18999999"
+             id="use221"
+             xlink:href="#c1e5ADa2Tm" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g223"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.18999999"
+             id="use225"
+             xlink:href="#a1Yn2vWMNz" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g227"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.18999999"
+             id="use229"
+             xlink:href="#b1PConS9k9" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g231"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.18999999"
+             id="use233"
+             xlink:href="#hhObUK4jp" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g235"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.18999999"
+             id="use237"
+             xlink:href="#beZSdJc6r" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g239"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.18999999"
+             id="use241"
+             xlink:href="#d7JjCCttu" />
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g243"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.58999999"
+             id="use245"
+             xlink:href="#a11qEkAgR7" />
+          <g
+             id="g247">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#e788fd;stroke-width:0;stroke-opacity:1"
+               id="use249"
+               xlink:href="#a11qEkAgR7" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g251"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:1"
+             id="use253"
+             xlink:href="#b2cMJCg6MU" />
+          <g
+             id="g255">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#e788fd;stroke-width:0;stroke-opacity:1"
+               id="use257"
+               xlink:href="#b2cMJCg6MU" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g259"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:1"
+             id="use261"
+             xlink:href="#dcCnbhzGG" />
+          <g
+             id="g263">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#e688fd;stroke-width:0;stroke-opacity:1"
+               id="use265"
+               xlink:href="#dcCnbhzGG" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g267"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:1"
+             id="use269"
+             xlink:href="#htWKZWjty" />
+          <g
+             id="g271">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#e688fd;stroke-width:0;stroke-opacity:1"
+               id="use273"
+               xlink:href="#htWKZWjty" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g275"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:1"
+             id="use277"
+             xlink:href="#b2CV7xK8sc" />
+          <g
+             id="g279">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#e688fd;stroke-width:0;stroke-opacity:1"
+               id="use281"
+               xlink:href="#b2CV7xK8sc" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g283"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:1"
+             id="use285"
+             xlink:href="#d6BmYk8ptg" />
+          <g
+             id="g287">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#e688fd;stroke-width:0;stroke-opacity:1"
+               id="use289"
+               xlink:href="#d6BmYk8ptg" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g291"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:1"
+             id="use293"
+             xlink:href="#a6X5Es6EW" />
+          <g
+             id="g295">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#e688fd;stroke-width:0;stroke-opacity:1"
+               id="use297"
+               xlink:href="#a6X5Es6EW" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g299"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:1"
+             id="use301"
+             xlink:href="#a7TmgNWqo" />
+          <g
+             id="g303">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#e688fd;stroke-width:0;stroke-opacity:1"
+               id="use305"
+               xlink:href="#a7TmgNWqo" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g307"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:1"
+             id="use309"
+             xlink:href="#a21JjlLWT" />
+          <g
+             id="g311">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#e688fd;stroke-width:0;stroke-opacity:1"
+               id="use313"
+               xlink:href="#a21JjlLWT" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g315"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.58999999"
+             id="use317"
+             xlink:href="#d8mJ60Yus" />
+          <g
+             id="g319">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#e688fd;stroke-width:0;stroke-opacity:1"
+               id="use321"
+               xlink:href="#d8mJ60Yus" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g323"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.58999999"
+             id="use325"
+             xlink:href="#a1VearB3" />
+          <g
+             id="g327">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#e688fd;stroke-width:0;stroke-opacity:1"
+               id="use329"
+               xlink:href="#a1VearB3" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g331"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.58999999"
+             id="use333"
+             xlink:href="#b15GgPnA21" />
+          <g
+             id="g335">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#e688fd;stroke-width:0;stroke-opacity:1"
+               id="use337"
+               xlink:href="#b15GgPnA21" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g339"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.58999999"
+             id="use341"
+             xlink:href="#fwtPK6IeE" />
+          <g
+             id="g343">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#e688fd;stroke-width:0;stroke-opacity:1"
+               id="use345"
+               xlink:href="#fwtPK6IeE" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g347"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.58999999"
+             id="use349"
+             xlink:href="#fR1zDOoa3" />
+          <g
+             id="g351">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#e688fd;stroke-width:0;stroke-opacity:1"
+               id="use353"
+               xlink:href="#fR1zDOoa3" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g355"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.58999999"
+             id="use357"
+             xlink:href="#n1ezLTzMnh" />
+          <g
+             id="g359">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#e688fd;stroke-width:0;stroke-opacity:1"
+               id="use361"
+               xlink:href="#n1ezLTzMnh" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g363"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.58999999"
+             id="use365"
+             xlink:href="#e1jiRpH0OX" />
+          <g
+             id="g367">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#e688fd;stroke-width:0;stroke-opacity:1"
+               id="use369"
+               xlink:href="#e1jiRpH0OX" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g371"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.58999999"
+             id="use373"
+             xlink:href="#b1gy5Uajc" />
+          <g
+             id="g375">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#e688fd;stroke-width:0;stroke-opacity:1"
+               id="use377"
+               xlink:href="#b1gy5Uajc" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g379"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.58999999"
+             id="use381"
+             xlink:href="#f4nEIz73" />
+          <g
+             id="g383">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#e788fd;stroke-width:0;stroke-opacity:1"
+               id="use385"
+               xlink:href="#f4nEIz73" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g387"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.58999999"
+             id="use389"
+             xlink:href="#a4UkH36Z0S" />
+          <g
+             id="g391">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#e688fd;stroke-width:0;stroke-opacity:1"
+               id="use393"
+               xlink:href="#a4UkH36Z0S" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g395"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.58999999"
+             id="use397"
+             xlink:href="#aQTUQECV2" />
+          <g
+             id="g399">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#e688fd;stroke-width:0;stroke-opacity:1"
+               id="use401"
+               xlink:href="#aQTUQECV2" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g403"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.58999999"
+             id="use405"
+             xlink:href="#alMnZHYlt" />
+          <g
+             id="g407">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#e688fd;stroke-width:0;stroke-opacity:1"
+               id="use409"
+               xlink:href="#alMnZHYlt" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g411"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.58999999"
+             id="use413"
+             xlink:href="#at3V9RVsM" />
+          <g
+             id="g415">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#e688fd;stroke-width:0;stroke-opacity:1"
+               id="use417"
+               xlink:href="#at3V9RVsM" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g419"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.58999999"
+             id="use421"
+             xlink:href="#f1y3KAZ3M1" />
+          <g
+             id="g423">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#e688fd;stroke-width:0;stroke-opacity:1"
+               id="use425"
+               xlink:href="#f1y3KAZ3M1" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g427"
+           visibility="inherit">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             style="opacity:1;fill:#349ed4;fill-opacity:0.58999999"
+             id="use429"
+             xlink:href="#a28Yrsw0Q" />
+          <g
+             id="g431">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#e688fd;stroke-width:0;stroke-opacity:1"
+               id="use433"
+               xlink:href="#a28Yrsw0Q" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g435"
+           visibility="inherit">
+          <g
+             id="g437">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#25acde;stroke-width:3;stroke-opacity:1"
+               id="use439"
+               xlink:href="#d1YIwcDzLj" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g441"
+           visibility="inherit">
+          <g
+             id="g443">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#25acde;stroke-width:3;stroke-opacity:1"
+               id="use445"
+               xlink:href="#c4dTX16PtE" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g447"
+           visibility="inherit">
+          <g
+             id="g449">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#c05050;stroke-width:3;stroke-opacity:1"
+               id="use451"
+               xlink:href="#d1lonf0a7c" />
+          </g>
+        </g>
+        <g
+           style="visibility:inherit"
+           id="g453"
+           visibility="inherit">
+          <g
+             id="g455">
+            <use
+               height="100%"
+               width="100%"
+               y="0"
+               x="0"
+               style="opacity:1;fill-opacity:0;stroke:#c05050;stroke-width:3;stroke-opacity:1"
+               id="use457"
+               xlink:href="#a64pl9jTSe" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
