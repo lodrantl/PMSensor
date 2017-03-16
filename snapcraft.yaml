@@ -1,5 +1,5 @@
 name: piment
-version: 0.0.2
+version: 0.0.3
 architectures: [armhf]
 summary: Reads data from SDS011 PM sensor and writes it into InfluxDB
 description: |
@@ -19,13 +19,13 @@ apps:
     daemon: simple
     plugs:
       - network-bind
-  exporterd:
-    command: bin/data-exporterd.wrapper
+  exportd:
+    command: bin/data-exportd.wrapper
     daemon: simple
     plugs:
       - network
-  data-exporter:
-    command: bin/data-exporter.wrapper
+  export:
+    command: bin/data-export.wrapper
     plugs:
       - network
   writer:
@@ -56,8 +56,8 @@ parts:
     source: connector/
     prime:
       - bin/db-writer.wrapper
-      - bin/data-exporter.wrapper
-      - bin/data-exporterd.wrapper
+      - bin/data-export.wrapper
+      - bin/data-exportd.wrapper
       - piment/db_writer.py
       - piment/data_exporter.py
       - piment/pm_reader.py
