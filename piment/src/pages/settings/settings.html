@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Nastavitve</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-item-group>
+        <ion-item-divider color="light">Škatlica</ion-item-divider>
+        <ion-item *ngFor="let box of boxes">
+            <ion-label>{{box.id}} {{box.url}}</ion-label>
+            <ion-radio value="{{box.id}}"></ion-radio>
+        </ion-item>
+        <ion-item right>
+            <button ion-button color="primary" (click)="openModal()"> Dodaj škatlico
+                <ion-icon name="add"></ion-icon>
+            </button>
+        </ion-item>
+        <ion-item>
+            <ion-label>Čas prikaza</ion-label>
+            <ion-input type="text"></ion-input>
+            <ion-select [(ngModel)]="gaming">
+                <ion-option value="s">s</ion-option>
+                <ion-option value="m">min</ion-option>
+                <ion-option value="h">ur</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-item-group>
+</ion-content>

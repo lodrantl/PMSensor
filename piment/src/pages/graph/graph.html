@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Graf: Postaja {{id}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+ <div>
+      <h4>Trenutne vrednosti delcev:</h4>
+      <ion-list>
+        <ion-item>
+          Čas meritve: {{current.time | date : "dd/MM/yyyy HH:mm:ss"}}
+        </ion-item>
+        <ion-item class="pm10">
+          PM 10: {{current.pm_10}} &#181;g/m<sup>3</sup>
+        </ion-item>
+        <ion-item class="pm25">
+          PM 2.5: {{current.pm_25}} &#181;g/m<sup>3</sup>
+        </ion-item>
+      </ion-list>
+    </div>
+    <h4 *ngIf="current.pm_10 == null || current.pm_25 == null">Podatki niso na voljo.</h4>
+    <chart [options]="chartOptions" (load)="saveChartInstance($event.context)"></chart>
+</ion-content>
