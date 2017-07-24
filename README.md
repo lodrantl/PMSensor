@@ -1,5 +1,7 @@
 # piment
 
+[![Snap Status](https://build.snapcraft.io/badge/lodrantl/piment.svg)](https://build.snapcraft.io/user/lodrantl/piment)
+
 A suite of applications designed for work with SDS011 PM sensor on Rasberry PI.
 
 It consists of a client part written in Ionic framework for Android and published in Google Play store and a server part written mostly in python and packaged as a Ubuntu Core Snap.
